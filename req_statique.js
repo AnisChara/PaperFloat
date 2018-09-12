@@ -1,21 +1,21 @@
 //=========================================================================
 // Traitement de l'envoi d'une "requête statique"
-// Auteur : P. Thiré & T. Kerbrat
-// Version : 23/07/2018
+// Auteurs : P. Thiré & T. Kerbrat
+// Version : 12/09/2018
 //=========================================================================
 "use strict";
 
-var fs = require("fs");
-var path = require("path");
-var url = require("url");
+const fs = require("fs");
+const path = require("path");
+const url = require("url");
 require('remedial');
 
-var req_statique = function (req, res, query) {
+let req_statique = function (req, res, query) {
 
-	var page;
-	var type;
-	var sousType;
-	var file = url.parse(req.url).pathname;
+	let page;
+	let type;
+	let sousType;
+	let file = url.parse(req.url).pathname;
 
 	// FABRIQUE LE PATH ABSOLU DU FICHIER DEMANDE
 
@@ -23,7 +23,7 @@ var req_statique = function (req, res, query) {
 
 	// AJUSTE LE TYPE EN FONCTION DE L'EXTENSION
 
-	var extname = path.extname(file);
+	let extname = path.extname(file);
 	if (extname === ".html") {
 		type = 'text';
 		sousType = 'html';

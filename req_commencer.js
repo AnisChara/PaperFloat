@@ -1,17 +1,17 @@
 //=========================================================================
 // Traitement de "req_commencer"
-// Auteur : P. Thiré & T. Kerbrat
-// Version : 23/07/2018
+// Auteurs : P. Thiré & T. Kerbrat
+// Version : 12/09/2018
 //=========================================================================
 "use strict";
 
-var fs = require("fs");
+const fs = require("fs");
 require('remedial');
 
-var trait = function (req, res, query) {
+let trait = function (req, res, query) {
 
-	var marqueurs;
-	var page;
+	let marqueurs;
+	let page;
 
 	// AFFICHAGE DE LA PAGE D'ACCUEIL
 

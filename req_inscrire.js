@@ -1,24 +1,24 @@
 //=========================================================================
 // Traitement de "req_inscrire"
-// Auteur : P. Thiré & T. Kerbrat
-// Version : 23/07/2018
+// Auteurs : P. Thiré & T. Kerbrat
+// Version : 12/09/2018
 //=========================================================================
 "use strict";
 
-var fs = require("fs");
+const fs = require("fs");
 require('remedial');
 
-var trait = function (req, res, query) {
+let trait = function (req, res, query) {
 
-	var marqueurs;
-	var pseudo;
-	var password;
-	var page;
-	var nouveauMembre;
-	var contenu_fichier;
-	var listeMembres;
-	var i;
-	var trouve;
+	let marqueurs;
+	let pseudo;
+	let password;
+	let page;
+	let nouveauMembre;
+	let contenu_fichier;
+	let listeMembres;
+	let i;
+	let trouve;
 
 	// ON LIT LES COMPTES EXISTANTS
 

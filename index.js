@@ -1,37 +1,38 @@
 //=========================================================================
 // Site WEB demo PI
-// Auteur : P. Thiré & T. Kerbrat
-// Version : 23/07/2018
+// Auteurs : P. Thiré & T. Kerbrat
+// Version : 12/09/2018
 //=========================================================================
+
 "use strict";
 
-var http = require("http");
-var url = require("url");
-var mon_serveur;
-var port;
+const http = require("http");
+const url = require("url");
+let mon_serveur;
+let port;
 
 //-------------------------------------------------------------------------
 // DECLARATION DES DIFFERENTS MODULES CORRESPONDANT A CHAQUE ACTION
 //-------------------------------------------------------------------------
 
-var req_commencer = require("./req_commencer.js");
-var req_afficher_formulaire_inscription = require("./req_afficher_formulaire_inscription.js");
-var req_inscrire = require("./req_inscrire.js");
-var req_identifier = require("./req_identifier.js");
+const req_commencer = require("./req_commencer.js");
+const req_afficher_formulaire_inscription = require("./req_afficher_formulaire_inscription.js");
+const req_inscrire = require("./req_inscrire.js");
+const req_identifier = require("./req_identifier.js");
 
-var req_static = require("./req_static.js");
-var req_erreur = require("./req_erreur.js");
+const req_static = require("./req_statique.js");
+const req_erreur = require("./req_erreur.js");
 
 //-------------------------------------------------------------------------
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
 //-------------------------------------------------------------------------
 
-var traite_requete = function (req, res) {
+let traite_requete = function (req, res) {
 
-	var ressource;
-	var requete;
-	var pathname;;
-	var query;
+	let ressource;
+	let requete;
+	let pathname;;
+	let query;
 
 	console.log("URL reçue : " + req.url);
 	requete = url.parse(req.url, true);
