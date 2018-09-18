@@ -10,7 +10,7 @@ const path = require("path");
 const url = require("url");
 require('remedial');
 
-let req_statique = function (req, res, query) {
+const req_statique = function (req, res, query) {
 
 	let page;
 	let type;

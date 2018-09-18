@@ -8,7 +8,7 @@
 const fs = require("fs");
 require('remedial');
 
-let trait = function (req, res, query) {
+const trait = function (req, res, query) {
 
 	let marqueurs;
 	let pseudo;

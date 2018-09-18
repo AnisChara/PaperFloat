@@ -8,7 +8,7 @@
 const fs = require("fs");
 const path = require("path");
 
-let show_erreur = function (req, res, query) {
+const show_erreur = function (req, res, query) {
 	res.writeHead(500, {'Content-Type': 'text/plain'});
 	res.write('ERREUR SERVEUR');
 	res.end();

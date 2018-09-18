@@ -27,7 +27,7 @@ const req_erreur = require("./req_erreur.js");
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
 //-------------------------------------------------------------------------
 
-let traite_requete = function (req, res) {
+const traite_requete = function (req, res) {
 
 	let ressource;
 	let requete;
