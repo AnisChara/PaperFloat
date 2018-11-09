@@ -1,7 +1,7 @@
 //=========================================================================
 // Site WEB demo PI
 // Auteurs : P. Thiré & T. Kerbrat
-// Version : 12/09/2018
+// Version : 09/11/2018
 //=========================================================================
 
 "use strict";
@@ -29,9 +29,8 @@ const req_erreur = require("./req_erreur.js");
 
 const traite_requete = function (req, res) {
 
-	let ressource;
 	let requete;
-	let pathname;;
+	let pathname;
 	let query;
 
 	console.log("URL reçue : " + req.url);
