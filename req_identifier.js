@@ -1,7 +1,7 @@
 //=========================================================================
 // Traitement de "req_identifier"
 // Auteurs : P. Thiré & T. Kerbrat
-// Version : 12/09/2018
+// Version : 15/09/2020
 //=========================================================================
 "use strict";
 
@@ -11,10 +11,7 @@ require('remedial');
 const trait = function (req, res, query) {
 
 	let marqueurs;
-	let pseudo;
-	let password;
 	let page;
-	let membre;
 	let contenu_fichier;
 	let listeMembres;
 	let i;

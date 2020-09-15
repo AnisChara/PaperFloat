@@ -20,7 +20,7 @@ const req_afficher_formulaire_inscription = require("./req_afficher_formulaire_i
 const req_inscrire = require("./req_inscrire.js");
 const req_identifier = require("./req_identifier.js");
 
-const req_static = require("./req_statique.js");
+const req_statique = require("./req_statique.js");
 const req_erreur = require("./req_erreur.js");
 
 //-------------------------------------------------------------------------
@@ -56,7 +56,7 @@ const traite_requete = function (req, res) {
 				req_identifier(req, res, query);
 				break;
 			default:
-				req_static(req, res, query);
+				req_statique(req, res, query);
 				break;
 		}
 	} catch (e) {
