@@ -1,12 +1,9 @@
-//=========================================================================
 // Traitement de "req_inscrire"
-// Auteurs : P. Thiré & T. Kerbrat
-// Version : 15/09/2020
-//=========================================================================
+
 "use strict";
 
 const fs = require("fs");
-require('remedial');
+const nunjucks = require("nunjucks");;
 
 const trait = function (req, res, query) {
 
@@ -58,7 +55,7 @@ const trait = function (req, res, query) {
 		marqueurs = {};
 		marqueurs.erreur = "ERREUR : ce compte existe déjà";
 		marqueurs.pseudo = query.pseudo;
-		page = page.supplant(marqueurs);
+		page = nunjucks.renderString(page, marqueurs);
 
 	} else {
 		// SI CREATION OK, ON ENVOIE PAGE DE CONFIRMATION
@@ -68,14 +65,12 @@ const trait = function (req, res, query) {
 		marqueurs = {};
 		marqueurs.pseudo = query.pseudo;
 		marqueurs.password = query.password;
-		page = page.supplant(marqueurs);
+		page = nunjucks.renderString(page, marqueurs);
 	}
 
 	res.writeHead(200, { 'Content-Type': 'text/html' });
 	res.write(page);
 	res.end();
 };
-
-//---------------------------------------------------------------------------
 
 module.exports = trait;

@@ -1,8 +1,4 @@
-//=========================================================================
 // Site WEB demo PI
-// Auteurs : P. Thiré & T. Kerbrat
-// Version : 09/11/2018
-//=========================================================================
 
 "use strict";
 
@@ -11,9 +7,7 @@ const url = require("url");
 let mon_serveur;
 let port;
 
-//-------------------------------------------------------------------------
 // DECLARATION DES DIFFERENTS MODULES CORRESPONDANT A CHAQUE ACTION
-//-------------------------------------------------------------------------
 
 const req_commencer = require("./req_commencer.js");
 const req_afficher_formulaire_inscription = require("./req_afficher_formulaire_inscription.js");
@@ -23,9 +17,7 @@ const req_identifier = require("./req_identifier.js");
 const req_statique = require("./req_statique.js");
 const req_erreur = require("./req_erreur.js");
 
-//-------------------------------------------------------------------------
 // FONCTION DE CALLBACK APPELLEE POUR CHAQUE REQUETE
-//-------------------------------------------------------------------------
 
 const traite_requete = function (req, res) {
 
@@ -62,17 +54,15 @@ const traite_requete = function (req, res) {
 	} catch (e) {
 		console.log('Erreur : ' + e.stack);
 		console.log('Erreur : ' + e.message);
-		//console.trace();
+		// console.trace();
 		req_erreur(req, res, query);
 	}
 };
 
-//-------------------------------------------------------------------------
 // CREATION ET LANCEMENT DU SERVEUR
-//-------------------------------------------------------------------------
 
 mon_serveur = http.createServer(traite_requete);
 port = 5000;
-//port = process.argv[2];
+// port = process.argv[2];
 console.log("Serveur en ecoute sur port " + port);
 mon_serveur.listen(port);

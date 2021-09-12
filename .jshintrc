@@ -1,16 +1,17 @@
 {
-    "globals": {
-        "console": false,
-        "require": false,
-        "module": false,
-		"__dirname": false
-    },
+    // Enforcing options
     "bitwise": true,
     "curly": true,
     "eqeqeq": true,
-	"esversion": 6,
+    "esversion": 11,
     "evil": true,
-    "globalstrict": true,
+    "globals": { /* false = read-only, true = read-write */
+        "console": false,
+        "require": false,
+        "module": false,
+        "__dirname": false
+    },
+    // "globalstrict": true,
     "latedef": "nofunc",
     "strict": true,
     "undef": true,

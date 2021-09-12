@@ -1,14 +1,11 @@
-//=========================================================================
 // Traitement de l'envoi d'une "requête statique"
-// Auteurs : P. Thiré & T. Kerbrat
-// Version : 15/09/2020
-//=========================================================================
+
 "use strict";
 
 const fs = require("fs");
 const path = require("path");
 const url = require("url");
-require('remedial');
+const nunjucks = require("nunjucks");;
 
 const req_statique = function (req, res, query) {
 
@@ -61,7 +58,5 @@ const req_statique = function (req, res, query) {
 		res.end();
 	}
 };
-
-//---------------------------------------------------------------------------
 
 module.exports = req_statique;

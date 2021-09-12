@@ -1,12 +1,9 @@
-//=========================================================================
 // Traitement de "req_identifier"
-// Auteurs : P. Thiré & T. Kerbrat
-// Version : 15/09/2020
-//=========================================================================
+
 "use strict";
 
 const fs = require("fs");
-require('remedial');
+const nunjucks = require("nunjucks");;
 
 const trait = function (req, res, query) {
 
@@ -45,7 +42,7 @@ const trait = function (req, res, query) {
 		marqueurs = {};
 		marqueurs.erreur = "ERREUR : compte ou mot de passe incorrect";
 		marqueurs.pseudo = query.pseudo;
-		page = page.supplant(marqueurs);
+		page = nunjucks.renderString(page, marqueurs);
 
 	} else {
 		// SI IDENTIFICATION OK, ON ENVOIE PAGE ACCUEIL MEMBRE
@@ -54,14 +51,12 @@ const trait = function (req, res, query) {
 
 		marqueurs = {};
 		marqueurs.pseudo = query.pseudo;
-		page = page.supplant(marqueurs);
+		page = nunjucks.renderString(page, marqueurs);
 	}
 
 	res.writeHead(200, { 'Content-Type': 'text/html' });
 	res.write(page);
 	res.end();
 };
-
-//---------------------------------------------------------------------------
 
 module.exports = trait;

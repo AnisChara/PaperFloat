@@ -1,12 +1,9 @@
-//=========================================================================
 // Traitement de "req_commencer"
-// Auteurs : P. Thiré & T. Kerbrat
-// Version : 15/09/2020
-//=========================================================================
+
 "use strict";
 
 const fs = require("fs");
-require('remedial');
+const nunjucks = require("nunjucks");;
 
 const trait = function (req, res, query) {
 
@@ -20,12 +17,11 @@ const trait = function (req, res, query) {
 	marqueurs = {};
 	marqueurs.erreur = "";
 	marqueurs.pseudo = "";
-	page = page.supplant(marqueurs);
+	page = nunjucks.renderString(page, marqueurs);
 
 	res.writeHead(200, { 'Content-Type': 'text/html' });
 	res.write(page);
 	res.end();
 };
-//--------------------------------------------------------------------------
 
 module.exports = trait;
