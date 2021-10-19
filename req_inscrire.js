@@ -40,10 +40,8 @@ const trait = function (req, res, query) {
 		listeMembres[listeMembres.length] = nouveauMembre;
 
 		contenu_fichier = JSON.stringify(listeMembres);
-
 		fs.writeFileSync("membres.json", contenu_fichier, 'utf-8');
 	}
-
 
 	// ON RENVOIT UNE PAGE HTML 
 
@@ -53,7 +51,7 @@ const trait = function (req, res, query) {
 		page = fs.readFileSync('modele_formulaire_inscription.html', 'utf-8');
 
 		marqueurs = {};
-		marqueurs.erreur = "ERREUR : ce compte existe déjà";
+		marqueurs.erreur = "<strong>ERREUR</strong> : ce compte existe déjà";
 		marqueurs.pseudo = query.pseudo;
 		page = nunjucks.renderString(page, marqueurs);
 

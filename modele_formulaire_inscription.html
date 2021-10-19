@@ -7,7 +7,7 @@
 	<body>
 		<h2>Formulaire de création de compte</h2>
 
-		{{ erreur }}
+		{{ erreur | safe }}
 
 		<form action="/req_inscrire" method="GET">
 			<label>Pseudo :</label>
