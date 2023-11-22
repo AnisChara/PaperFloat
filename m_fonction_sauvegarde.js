@@ -6,7 +6,7 @@ const traitement_sauvegarde = function()
 
     save = arguments[1](parameter);
 
-    JSON.stringify(save)
+    JSON.stringify(save);
 
 }
 
