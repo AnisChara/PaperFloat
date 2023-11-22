@@ -4,9 +4,9 @@
 // require module de anis (module_liste_bateaux)
 const bateaux = require("./m_liste_bateaux.js");
 // require module de tir 
-let tir = {x: 0, y: 0}
+
 // créer une fonction 
-const verification_tir = function ()
+const verification_tir = function (tir, bateaux)
 {
 	// je rentre pour commencer dans la liste bateaux où il y tout mes bateaux 
 	for ( let i = 0; i < bateaux.length; i++)
