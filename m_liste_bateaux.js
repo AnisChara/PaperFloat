@@ -51,4 +51,5 @@ let bateaux = [
         {x : 0, y : 0, state : false},
     ]
 ]
+JSON.stringify(bateaux);
 module.exports = bateaux;
