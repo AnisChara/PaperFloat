@@ -51,4 +51,4 @@ let bateaux = [
         {x : 0, y : 0, state : false},
     ]
 ]
-module.exports = m_liste_bateaux.js
+module.exports = bateaux;
