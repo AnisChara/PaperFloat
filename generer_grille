@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 
-const player = 2;
+const player = 1;
 const party = 2;
 
 const create_grid = function(player,party)
@@ -23,7 +23,7 @@ const create_grid = function(player,party)
     }
 
     let grid = JSON.stringify(generer_grille())
-    fs.writeFileSync("./save_grid-"+player+"_"+party+".js",grid,"UTF-8")
+    fs.writeFileSync("./save_grid_"+player+"_"+party+".js",grid,"UTF-8")
 
 }
 
