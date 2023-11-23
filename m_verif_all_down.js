@@ -6,7 +6,7 @@ const verif_all_down = function(grid,bateaux)
 
     let bateau = 0;
     let index = 0;
-    for(bateau; bateau <2; bateau++)
+    for(bateau; bateau <2; bateau++) // vérification si les 2 bateaux de 2 cases sont coulés
     {
         for(index = 0; index<2;index++)
         {
@@ -22,7 +22,7 @@ const verif_all_down = function(grid,bateaux)
         }
     }
     
-    for(bateau; bateau <4; bateau++)
+    for(bateau; bateau <4; bateau++) // vérification si les 2 bateaux de 3 cases sont coulés
     {
         for(index = 0; index<3;index++)
         {
@@ -38,7 +38,7 @@ const verif_all_down = function(grid,bateaux)
         }
     }
 
-    for(index = 0; index<4; index++)
+    for(index = 0; index<4; index++) // vérification si le bateau de 4 cases est coulé
     {
         if(bateaux[4][index].state === "true")
         {
@@ -51,7 +51,7 @@ const verif_all_down = function(grid,bateaux)
         }
     }
 
-    for(index = 0; index<10; index++)
+    for(index = 0; index<10; index++) // vérification si le bateau de 10 cases est coulé
     {
         if(bateau[5][index].state === "true")
         {

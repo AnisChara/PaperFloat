@@ -2,29 +2,26 @@
 
 const fs = require("fs");
 
-const player = 1;
-const party = 2;
-
-const create_grid = function(player,party)
+const create_grid = function(player,party) // fonction pour créer la sauvegarde de la grille
 {
     
-    const generer_grille = function()
+    const generer_grille = function() // fonction pour générer la grille
     {
         let grille = [];
-        for(let y = 0; y != 9; y++)
+        for(let y = 0; y != 9; y++) // génération des cases en y dans la grille
         {
             grille[y] = [""]
-            for(let x = 0; x != 9; x++)
+            for(let x = 0; x != 9; x++) // génération des cases en x dans la grille 
             {
-                grille[y][x] = "true";
+                grille[y][x] = "false";
             } 
         }
         return grille;
     }
 
-    let grid = JSON.stringify(generer_grille())
-    fs.writeFileSync("./save_grid_"+player+"_"+party+".js",grid,"UTF-8")
+    let grid = JSON.stringify(generer_grille()) // sauvegarde JSON de la grille 
+    fs.writeFileSync("./save_grid_"+player+"_"+party+".js",grid,"UTF-8") // création et/ou écriture d'une grille vierge 
 
 }
 
-create_grid(player,party);
+module.exports = create_grid;
