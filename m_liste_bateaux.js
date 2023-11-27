@@ -14,45 +14,45 @@ let bateau_10 = [];
 let bateaux = [
 
     bateau_2_A = [
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false}
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false}
     ],
 
     bateau_2_B = [ 
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false}
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false}
     ],
 
     bateau_3_A = [
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false}
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false}
     ],
 
     bateau_3_B = [
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false}
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false}
     ],
     
     bateau_4 = [
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false}
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false}
     ],
 
     bateau_10 =[
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
-        {x : 0, y : 0, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
+        {x : 11, y : 11, state : false},
     ]
 ]
 
@@ -60,4 +60,4 @@ bateaux = JSON.stringify(bateaux);
 fs.writeFileSync("./save_bateaux_"+player+"_"+party+".js",bateaux,"UTF-8")
 }
 
-module.exports = m_liste_bateaux.js
+module.exports = create_bateaux

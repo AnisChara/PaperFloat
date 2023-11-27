@@ -18,7 +18,7 @@ const ultime_placement = function(player,party,co_case_choisi,rotate,bateau)
 
     if(co_bateau === false)
     {   
-        return "error";
+        return false
     }
     else
     {
