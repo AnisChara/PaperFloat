@@ -1,28 +1,31 @@
-// require module d'Anis (module_liste_bateaux)
-const bateaux = require("./m_liste_bateaux.js");
-const bateau_choisi = require("./")
-// creer une fonction
+"use strict"
 
-const doublon = function(bateaux,bateau_choisi)
-{
-    // je rentre pour commencer dans la liste bateaux où il y a tous mes bateaux 
+const fs = require("fs");
+
+const doublon = function(co_bateau, player, party)
+{   
+    //je recupere la liste des bateaux du joueur
+    let bateaux = fs.readFileSync("./save_bateaux_"+player+"_"+party+".js")
+    bateaux = JSON.parse(bateaux);
+
+
+   // je rentre pour commencer dans la liste bateaux où il y a tous mes bateaux 
 	for ( let i = 0; i < bateaux.length; i++)
 	{
-		// ici je rentre dans la liste d'un des différent bateaux où j'ai mes différentes coordonées
+		// je balaye les coo de chaque bateaux 
 		for ( let j = 0; j < bateaux[i].length; j++)
-		{
-            let index = 1;
-            if(bateaux[i][j].x !== bateaux[i][index].x && bateaux[i][j].y !== bateaux[i][index].y)
+		{   
+            //je balaye les coo du bateau a verifier
+            for (let u = 0; u < co_bateau.length; u++)
             {
-                index++;   
-            }
-            else
-            {
-                console.log("ce bateau est placé sur un autre bateau");
-               break; 
+                if(bateaux[i][j].x === co_bateau[u].x && bateaux[i][j].y === co_bateau[u].y)
+                {
+                    co_bateau = false;   
+                }
             }
         }
     }
+    return co_bateau;
 }
-
+   
 module.exports = doublon;
