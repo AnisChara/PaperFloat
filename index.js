@@ -25,7 +25,7 @@ const traite_requete = function (req, res) {
 	let requete;
 	let pathname;
 	let query;
-
+	
 	console.log("URL reçue : " + req.url);
 	requete = url.parse(req.url, true);
 	pathname = requete.pathname;

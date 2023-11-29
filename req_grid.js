@@ -9,6 +9,7 @@ const req_grid = function (req, res, query) {
 
 	let marqueurs;
 	let page;
+	let bouton;
 
 	// AFFICHAGE DE LA PAGE D'ACCUEIL
 
@@ -16,8 +17,10 @@ const req_grid = function (req, res, query) {
 
     let grid = "";
 
-    for (let i = 0; i < 100; i++) {
-        grid+= `<div class="btn"><a value="${i}"><button></button></a></div>`
+    for (let i = 0; i < 10; i++) {
+		for ( let j = 0; j < 10; j++ ) {
+			grid+= `<div class="btn"><a type="submit" href="/req_grid?bouton=${i}/${j}"><input type="button"></a></div>`
+		}
     }
 
 	marqueurs = {};
