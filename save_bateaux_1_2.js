@@ -1,0 +1,3 @@
+[[{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false}],[{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false}],[{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false}],[{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false}],[{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false}],[{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false},{"x":11,"y":11,"state":false}]]
+
+//fichier test de save bateaux

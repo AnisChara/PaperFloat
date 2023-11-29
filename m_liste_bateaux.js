@@ -1,7 +1,7 @@
 "use strict"
 
 const fs = require("fs");
-
+//fonction qui genere les bateaux
 const create_bateaux = function(player, party)
 {
 let bateau_2_A = [];
@@ -10,7 +10,7 @@ let bateau_3_A = [];
 let bateau_3_B = [];
 let bateau_4 = [];
 let bateau_10 = [];
-
+//bateaux -> bateau -> case -> x,y,state
 let bateaux = [
 
     bateau_2_A = [
