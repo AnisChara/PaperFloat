@@ -19,7 +19,7 @@ const m_placement_bateau = function (co_case_choisi,bateau, rotate)
             {
                 co_bateau.push({x :co_bateau[0].x , y :co_bateau[0].y + i});
             }
-        }
+        }   //si il s'agit du bateau de 2x5
         if (bateau.length > 5)
         {
             for (let i = 1; i<bateau.length; i++)
@@ -31,10 +31,10 @@ const m_placement_bateau = function (co_case_choisi,bateau, rotate)
                 if (j === true)
                 {
                 
-                co_bateau.push({x :co_bateau[0].x + 1, y :co_bateau[0].y + u});
+                    co_bateau.push({x :co_bateau[0].x + 1, y :co_bateau[0].y + u});
                 
 
-               }
+                }
                else co_bateau.push({x:co_case_choisi.x,y:co_case_choisi.y+ u});
                u++
             }
@@ -43,10 +43,32 @@ const m_placement_bateau = function (co_case_choisi,bateau, rotate)
 
     if (rotate === true)
     
-    {
-        for (let i = 1; i< bateau.length; i++)
+    {   
+        if (bateau.length < 5)
         {
-            co_bateau.push({x: co_bateau[0].x + i, y : co_bateau[0].y});
+            for (let i = 1; i< bateau.length; i++)
+            {
+                co_bateau.push({x: co_bateau[0].x + i, y : co_bateau[0].y});
+            }
+        }   //s'il s'agit du 2x5
+        if (bateau.length > 5)
+        {
+            for (let i = 1; i<bateau.length; i++)
+            {
+                if ( u === 5 ) 
+                {   
+                    j = true; u = 0;
+                }
+                if (j === true)
+                {
+                
+                    co_bateau.push({x :co_bateau[0].x + u, y :co_bateau[0].y + 1});
+                
+
+                }
+               else co_bateau.push({x:co_case_choisi.x + u,y:co_case_choisi.y});
+               u++
+            }
         }
     }
     
