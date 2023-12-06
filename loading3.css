@@ -1,0 +1,64 @@
+/*Ici je commence par la balise body, pour déterminer la taille pour mettre en page de notre bar de chargement*/
+body
+{
+    height: 100vh;
+    background-color: black;
+    font-family: 'poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*cette classe va déterminé la postion et la largeur de ma bar (encadrement)*/
+.loader
+{
+    width: 300px;
+    position: relative;
+}
+
+/*je détermine ma première classe pour faire une forme rectangulaire, puis je vais arrondir pour faire une bar de chargement*/
+.loader .loading_1
+{
+    position: relative;
+    width: 100%;
+    height: 25px;
+    border: 1px solid grey;
+    background-color: lightgray;
+    border-radius: 25px;
+}
+
+/*before sert à créer un pseudo élément qui va être différent d'un pseudo-classe.*/
+.loader .loading_1::before
+{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 4;
+    height: 100%;                   
+    background-color: aqua;
+    border-radius: 25px;
+    animation: load/*nom*/ 5s/*temps*/ linear/*direction*/ infinite/*fréquence*/;     /*j'utilise l'atribut animation pour par la suite le rappeler avec @keyframe et contrôler mon animation */
+}
+
+/*ici cette classe est pour écirre le loading bar en dessous la bar de chargement */
+.loading_2
+{
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*permet de définir le fonctionnement d'une animation*/
+@keyframes load 
+{
+    /*0% et 87.5% sont donc les étape du chargement pour animer la bar bleu cyan*/ 
+    0% {            
+        width: 4%;      /*Je défini la largeur que doit atteindre ma bar une fois qu'elle est a 0%*/ 
+    } 
+
+    87.5% {                        
+        width: 100%;    /*Je défini la largeur que doit atteindre ma bar une fois qu'elle est a 87.5%*/        
+    }
+}
