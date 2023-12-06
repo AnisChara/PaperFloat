@@ -9,6 +9,7 @@ let port;
 
 // DECLARATION DES DIFFERENTS MODULES CORRESPONDANT A CHAQUE ACTION
 
+const req_afficher_accueil_jeu = require("./req_afficher_accueil_jeu.js");
 const req_commencer = require("./req_commencer.js");
 const req_afficher_formulaire_inscription = require("./req_afficher_formulaire_inscription.js");
 const req_inscrire = require("./req_inscrire.js");
@@ -50,6 +51,9 @@ const traite_requete = function (req, res) {
 				break;
 			case '/req_grid':
 				req_grid(req,res,query)
+				break;
+			case `/req_afficher_accueil_jeu`:
+				req_afficher_accueil_jeu(req,res,query)
 				break;
 			default:
 				req_statique(req, res, query);
