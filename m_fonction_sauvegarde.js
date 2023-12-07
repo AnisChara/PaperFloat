@@ -14,7 +14,28 @@ const traitement_sauvegarde = function(...args) // fonction prend en paramètre 
 
     JSON.stringify(save); // stringify pour sauvegarder les changements
 
-    fs.WriteFileSync(save,"UTF-8")
+    fs.writeFileSync(arguments[0],save,"UTF-8")
 }
 
 module.exports = traitement_sauvegarde // export de la fonction traitement_sauvegarde
+
+const create_test_save = function()
+{
+    const json_test = 10;
+    String(json_test);
+    JSON.stringify(json_test);
+    fs.writeFileSync("./nb_test",json_test,"UTF-8");
+}
+
+const exe = function(nbBase,nb1,nb2,nb3,nb4)
+{
+    nbBase = Number(nbBase + nb1);
+    nbBase = Number(nbBase - nb2);
+    nbBase = Number(nbBase / nb3);
+    nbBase = Number(nbBase **nb4);
+}
+
+create_test_save();
+traitement_sauvegarde("./nb_test",exe,"2","3","3","4");
+const show = fs.readFileSync("./nb_test");
+console.log(show);
