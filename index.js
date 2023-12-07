@@ -9,11 +9,13 @@ let port;
 
 // DECLARATION DES DIFFERENTS MODULES CORRESPONDANT A CHAQUE ACTION
 
+const req_afficher_accueil_jeu = require("./req_afficher_accueil_jeu.js");
 const req_commencer = require("./req_commencer.js");
 const req_afficher_formulaire_inscription = require("./req_afficher_formulaire_inscription.js");
 const req_inscrire = require("./req_inscrire.js");
 const req_identifier = require("./req_identifier.js");
 const req_grid = require("./req_grid.js");
+const req_bateaux = require("./req_bateaux.js");
 
 const req_statique = require("./req_statique.js");
 const req_erreur = require("./req_erreur.js");
@@ -30,6 +32,9 @@ const traite_requete = function (req, res) {
 	requete = url.parse(req.url, true);
 	pathname = requete.pathname;
 	query = requete.query;
+
+	console.log("pathname : " + pathname);
+    console.log("query string (x/y) : " + query.bouton);
 
 	// ROUTEUR
 
@@ -50,6 +55,12 @@ const traite_requete = function (req, res) {
 				break;
 			case '/req_grid':
 				req_grid(req,res,query)
+				break;
+				case `/req_afficher_accueil_jeu`:
+				req_afficher_accueil_jeu(req,res,query)
+				break;
+				case '/req_bateaux':
+				req_bateaux(req, res, query)
 				break;
 			default:
 				req_statique(req, res, query);
