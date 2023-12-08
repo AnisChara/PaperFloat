@@ -15,13 +15,15 @@ const ultime_placement = function(player,party,co_case_choisi,rotate,bateau)
     let co_bateau;
 
     //je recupere la sauvegarde des bateaux selon le joueur et la partie
-    let bateaux = fs.readFileSync("./save_bateaux_"+player+"_"+party+".js");
+    let bateaux = fs.readFileSync("./save_bateaux_"+player+"_"+party+".json");
     bateaux = JSON.parse(bateaux);
+    let nb_bateau = bateau;
+    bateau = bateaux[bateau];
 
     //execution des programmes
     co_bateau = m_placement_bateau (co_case_choisi,bateau, rotate);
     co_bateau = verification_position(co_bateau);
-    co_bateau = doublon(co_bateau,player,party);
+    co_bateau = doublon(co_bateau,player,party, nb_bateau);
 
     //si un des modules renvoi une erreur
     if(co_bateau === false)
@@ -36,6 +38,7 @@ const ultime_placement = function(player,party,co_case_choisi,rotate,bateau)
             bateau[i].x = co_bateau[i].x; bateau[i].y = co_bateau[i].y; 
         }
     }
+        return bateaux;
    }
 
 

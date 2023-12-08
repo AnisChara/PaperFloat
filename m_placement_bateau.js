@@ -6,69 +6,56 @@ const m_placement_bateau = function (co_case_choisi,bateau, rotate)
     let j = false;
     let co_bateau = [];
     //Assignation des coordonnées de la case choisie à la premiere case du bateau
-    co_bateau.push({x:co_case_choisi.x,y:co_case_choisi.y});
+    co_bateau.push({x:co_case_choisi.x,y:co_case_choisi.y, state : false});
 
 
     //Assignation des autres cases du bateau selon la rotation
     if (rotate === false)
     
     {   
-        if (bateau.length < 5)
+        if (bateau.length < 7)
         {
-            for (let i = 1; i< bateau.length; i++)
+            for (let i = 1; i<= bateau.length/2; i++)
             {
-                co_bateau.push({x :co_bateau[0].x , y :co_bateau[0].y + i});
+                co_bateau.push({x :co_bateau[0].x , y :co_bateau[0].y + i, state : false});
+                co_bateau.push({x :co_bateau[0].x , y :co_bateau[0].y - i, state : false});
             }
-        }   //si il s'agit du bateau de 2x5
-        if (bateau.length > 5)
+        }   //si il s'agit du bateau de 3x3
+        else
         {
-            for (let i = 1; i<bateau.length; i++)
-            {
-                if ( u === 5 ) 
-                {   
-                    j = true; u = 0;
-                }
-                if (j === true)
-                {
-                
-                    co_bateau.push({x :co_bateau[0].x + 1, y :co_bateau[0].y + u});
-                
-
-                }
-               else co_bateau.push({x:co_case_choisi.x,y:co_case_choisi.y+ u});
-               u++
-            }
+           co_bateau.push({x :co_bateau[0].x, y : co_bateau[0].y - 1, state : false} );
+           co_bateau.push({x :co_bateau[0].x, y : co_bateau[0].y + 1, state : false} );
+           co_bateau.push({x :co_bateau[0].x - 1, y : co_bateau[0].y , state : false} );
+           co_bateau.push({x :co_bateau[0].x + 1, y : co_bateau[0].y , state : false} );
+           co_bateau.push({x :co_bateau[0].x + 1, y : co_bateau[0].y + 1 , state : false} );
+           co_bateau.push({x :co_bateau[0].x - 1, y : co_bateau[0].y + 1 , state : false} );
+           co_bateau.push({x :co_bateau[0].x + 1, y : co_bateau[0].y - 1 , state : false} );
+           co_bateau.push({x :co_bateau[0].x - 1, y : co_bateau[0].y - 1 , state : false} );
         }
     }
 
     if (rotate === true)
     
     {   
-        if (bateau.length < 5)
+        if (bateau.length < 7)
         {
-            for (let i = 1; i< bateau.length; i++)
+            for (let i = 1; i<= bateau.length/2; i++)
             {
-                co_bateau.push({x: co_bateau[0].x + i, y : co_bateau[0].y});
-            }
-        }   //s'il s'agit du 2x5
-        if (bateau.length > 5)
-        {
-            for (let i = 1; i<bateau.length; i++)
-            {
-                if ( u === 5 ) 
-                {   
-                    j = true; u = 0;
-                }
-                if (j === true)
-                {
-                
-                    co_bateau.push({x :co_bateau[0].x + u, y :co_bateau[0].y + 1});
-                
+                co_bateau.push({x: co_bateau[0].x + i, y : co_bateau[0].y, state : false});
+                co_bateau.push({x: co_bateau[0].x - i, y : co_bateau[0].y, state : false});
 
-                }
-               else co_bateau.push({x:co_case_choisi.x + u,y:co_case_choisi.y});
-               u++
             }
+        }   //s'il s'agit du 3x3
+        else
+        {
+           co_bateau.push({x :co_bateau[0].x, y : co_bateau[0].y - 1, state : false} );
+           co_bateau.push({x :co_bateau[0].x, y : co_bateau[0].y + 1, state : false} );
+           co_bateau.push({x :co_bateau[0].x - 1, y : co_bateau[0].y , state : false} );
+           co_bateau.push({x :co_bateau[0].x + 1, y : co_bateau[0].y , state : false} );
+           co_bateau.push({x :co_bateau[0].x + 1, y : co_bateau[0].y + 1 , state : false} );
+           co_bateau.push({x :co_bateau[0].x - 1, y : co_bateau[0].y + 1 , state : false} );
+           co_bateau.push({x :co_bateau[0].x + 1, y : co_bateau[0].y - 1 , state : false} );
+           co_bateau.push({x :co_bateau[0].x - 1, y : co_bateau[0].y - 1 , state : false} );
         }
     }
     

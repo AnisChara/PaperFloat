@@ -50,7 +50,9 @@ let bateaux = [
 ]
 
 bateaux = JSON.stringify(bateaux);
-fs.writeFileSync("./save_bateaux_"+player+"_"+party+".js",bateaux,"UTF-8")
+fs.writeFileSync("./save_bateaux_"+player+"_"+party+".json",bateaux,"UTF-8")
 }
-
+/*let player=1;
+let party = 2
+create_bateaux(player,party)*/
 module.exports = create_bateaux
