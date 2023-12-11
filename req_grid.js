@@ -7,14 +7,7 @@ const nunjucks = require("nunjucks");;
 
 const req_grid = function (req, res, query) {
 
-	let marqueurs;
-	let page;
-	let bouton;
-
-	// AFFICHAGE DE LA PAGE D'ACCUEIL
-
-	page = fs.readFileSync('page_jeu.html', 'utf-8');
-
+	let bateaux = JSON.parse(fs.readFileSync("./save_bateaux_1_2.json"))
     let grid = "";
 	let css;
 
@@ -34,23 +27,16 @@ const req_grid = function (req, res, query) {
 			}
 			if (css === true)
 			{
-				grid+= `<div class="btn2"><a type="submit" href="/req_bateaux?bouton=${i}/${j}"><input type="button"></a></div>`
+				grid+= `<div class="btn2"><a type="submit" href="/req_bateaux?bouton=${i}-${j}"><input type="button"></a></div>`
 			}
 			else
 			{
-				grid+= `<div class="btn"><a type="submit" href="/req_bateaux?bouton=${i}/${j}"><input type="button"></a></div>`
+				grid+= `<div class="btn"><a type="submit" href="/req_bateaux?bouton=${i}-${j}"><input type="button"></a></div>`
 			}
 			css = false;
 		}
     }
-	marqueurs = {};
-	marqueurs.erreur = "";
-	marqueurs.grid = grid;
-	page = nunjucks.renderString(page, marqueurs);
-
-	res.writeHead(200, { 'Content-Type': 'text/html' });
-	res.write(page);
-	res.end();
+	return grid;
 };
 
 module.exports = req_grid;
