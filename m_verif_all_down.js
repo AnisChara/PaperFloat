@@ -1,19 +1,23 @@
 "use strict";
 
-const verif_all_down = function(bateaux)
+const fs = require("fs");
+
+const verif_all_down = function(save_bateaux)
 {
+    save_bateaux = JSON.parse(fs.readFileSync(save_bateaux));
+
     let nb_bateau = 0;
     let index_case = 0;
-    for(nb_bateau; nb_bateau < bateaux.length; nb_bateau++) // vérification si les 2 bateaux de 2 cases sont coulés
+    for(nb_bateau; nb_bateau < save_bateaux.length; nb_bateau++) // vérification si les 2 save_bateaux de 2 cases sont coulés
     {
-        for(index_case = 0; index_case < bateaux[nb_bateau].length; index_case++)
+        for(index_case = 0; index_case < save_bateaux[nb_bateau].length; index_case++)
         {
-            if(bateaux[nb_bateau][index_case].state === true)
+            if(save_bateaux[nb_bateau][index_case].state === true)
             {
                    
             }
 
-            else if(bateaux[nb_bateau][index_case].state === false)
+            else if(save_bateaux[nb_bateau][index_case].state === false)
             {
                 return false
             }
@@ -27,7 +31,7 @@ const verif_all_down = function(bateaux)
 }
 
 /*
-const bateaux = [
+const save_bateaux = [
                     [  
                         {"x":11,"y":11,"state":true},
                         {"x":11,"y":11,"state":true}
@@ -71,6 +75,6 @@ const bateaux = [
                     ]
                 ]
 
-const check = verif_all_down(bateaux);
+const check = verif_all_down(save_bateaux);
 console.log(check);
 */
