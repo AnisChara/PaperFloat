@@ -33,7 +33,7 @@ const req_grid = function (req, res, query) {
 			//}
 			//else 
 			{
-				grid+= `<div class="btn"><a type="submit" href="/req_grid?bouton=${i}/${j}"><input type="button"></a></div>`
+				grid+= `<div class="btn"><a type="submit" href="/req_grid?bouton=${i}-${j}"><input type="button"></a></div>`
 			}
 		}
     }
