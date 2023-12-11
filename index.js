@@ -53,6 +53,9 @@ const traite_requete = function (req, res) {
 			case '/req_identifier':
 				req_identifier(req, res, query);
 				break;
+			case '/req_afficher_accueil_jeu':
+				req_afficher_accueil_jeu(req, res, query);
+				break;
 			case '/req_bateaux':
 				req_bateaux(req,res,query)
 				break;
