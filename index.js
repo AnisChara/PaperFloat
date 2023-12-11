@@ -56,10 +56,10 @@ const traite_requete = function (req, res) {
 			case '/req_grid':
 				req_grid(req,res,query)
 				break;
-				case `/req_afficher_accueil_jeu`:
+			case `/req_afficher_accueil_jeu`:
 				req_afficher_accueil_jeu(req,res,query)
 				break;
-				case '/req_bateaux':
+			case '/req_bateaux':
 				req_bateaux(req, res, query)
 				break;
 			default:

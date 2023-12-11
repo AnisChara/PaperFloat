@@ -19,7 +19,22 @@ const req_grid = function (req, res, query) {
 
     for (let i = 0; i < 10; i++) {
 		for ( let j = 0; j < 10; j++ ) {
-			grid+= `<div class="btn"><a type="submit" href="/req_grid?bouton=${i}/${j}"><input type="button"></a></div>`
+			//if ( case_tir === eau_touche )
+			//{
+			//	grid+= `<div class="eau"><a type="submit" href="/req_grid?bouton=${i}/${j}"><input type="button"></a></div>`
+			//}
+			//else if ( case_tir === bateau_touche ) 
+			//{
+			//	grid+= `<div class="bateau_touche"><a type="submit" href="/req_grid?bouton=${i}/${j}"><input type="button"></a></div>`
+			//}
+			//else if ( case_tir === bateau_non_touche )
+			//{
+			//	grid+= `<div class="bateau_non_touche"><a type="submit" href="/req_grid?bouton=${i}/${j}"><input type="button"></a></div>`
+			//}
+			//else 
+			{
+				grid+= `<div class="btn"><a type="submit" href="/req_grid?bouton=${i}/${j}"><input type="button"></a></div>`
+			}
 		}
     }
 
