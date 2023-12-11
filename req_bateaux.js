@@ -3,7 +3,8 @@
 "use strict";
 
 const fs = require("fs");
-const nunjucks = require("nunjucks");;
+const nunjucks = require("nunjucks");
+const req_grid = require("./req_grid.js");
 
 const req_bateaux = function (req, res, query) {
 
@@ -16,12 +17,7 @@ const req_bateaux = function (req, res, query) {
 	page = fs.readFileSync('page_placement.html', 'utf-8');
 
     let grid = "";
-
-    for (let i = 0; i < 10; i++) {
-		for ( let j = 0; j < 10; j++ ) {
-			grid+= `<div class="btn"><a type="submit" href="/req_bateaux?bouton=${i}/${j}"><input type="button"></a></div>`
-		}
-    }
+	grid = req_grid(case_choisi, liste_bateaux, grille)
 
 	marqueurs = {};
 	marqueurs.erreur = "";
