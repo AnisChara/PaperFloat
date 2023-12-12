@@ -36,7 +36,6 @@ const req_bateaux = function (req, res, query) {
 		co = {x:Number(co[1]),y:Number(co[0])};
 		bateaux = placement(player,party,co,rotate,bateau);
 		bateaux = JSON.stringify(bateaux);
-		console.log(bateaux);
 		
 		if(bateaux !== "false")
 		{ 

@@ -1,10 +1,10 @@
 body
 {
-    background: url(fond.webp) no-repeat;
+    background: url(fond.png) no-repeat;
     background-size: cover;
     height: 100vh;
     background-position: left;
-    animation: move 40s ease-in-out infinite;
+    animation: move 20s ease-in-out infinite;
 }
 .placement
 {
@@ -27,7 +27,7 @@ button
 @keyframes move 
 {
     0% {
-        background-position: left;
+       background-position: left;
     }
     50% {
         background-position: right;
