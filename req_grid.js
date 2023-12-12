@@ -5,7 +5,7 @@
 const fs = require("fs");
 const nunjucks = require("nunjucks");;
 
-const req_grid = function (req, res, query) {
+const req_grid = function() {
 
 	let bateaux = JSON.parse(fs.readFileSync("./save_bateaux_1_2.json"))
     let grid = "";
