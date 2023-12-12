@@ -6,7 +6,7 @@ const fs = require("fs");
 const nunjucks = require("nunjucks");
 const req_grid = require("./req_grid.js");
 const { log } = require("console");
-const placement = require("./m_ultime_placement.js")
+const placement = require("./m_ultime_placement.js");
 
 const req_bateaux = function (req, res, query) {
 
@@ -37,9 +37,13 @@ const req_bateaux = function (req, res, query) {
 		let bateau = JSON.parse(fs.readFileSync("./bateau_edit.json"));
 		let nb_rotate = JSON.parse(fs.readFileSync("./rotate.json"));
 		if (nb_rotate%2 === 0)
-		{console.log("oui");rotate = false;}
+		{
+			rotate = false;
+		}
 		else 
-		{rotate = true;console.log("non");}
+		{
+			rotate = true;
+		}
 		let party = 2;
 		let player = 1;
 		let co = query.bouton;
