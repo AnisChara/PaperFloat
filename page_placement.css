@@ -47,6 +47,12 @@ body
     height: 30px;
     margin: 5%;
 }
+.valide
+{
+    width: 100px;
+    height: 30px;
+    margin-top: 5px;
+}
 .btn
 {
     border: 1px solid white;
@@ -77,6 +83,13 @@ body
     cursor: crosshair;
 }
 .btn4
+{
+    border: 1px solid white;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+.confirm
 {
     border: 1px solid white;
     width: 100%;

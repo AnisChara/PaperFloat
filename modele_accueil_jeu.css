@@ -1,6 +1,6 @@
 body
-{/*url(fond.png) no-repeat*/
-    background: url(fond.png) no-repeat;
+{
+    background: url(toivague.webp) no-repeat;
     background-size: cover;
     height: 100vh;
     background-position: left;
