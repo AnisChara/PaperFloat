@@ -7,6 +7,7 @@ const nunjucks = require("nunjucks");
 const req_grid = require("./req_grid.js");
 const { log } = require("console");
 const placement = require("./m_ultime_placement.js");
+const gen_bateaux = require("./m_liste_bateaux.js");
 
 const req_bateaux = function (req, res, query) {
 
@@ -20,6 +21,10 @@ const req_bateaux = function (req, res, query) {
 
 	let bateau;
 	let rotate;
+	if(query.reset)
+	{
+		gen_bateaux();
+	}
 	if(query.rotate)
 	{
 		let nb_rotate = JSON.parse(fs.readFileSync("./rotate.json"))
