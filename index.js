@@ -60,9 +60,6 @@ const traite_requete = function (req, res) {
 			case '/req_bateaux':
 				req_bateaux(req,res,query)
 				break;
-			case `/m_liste_bateaux`:
-				m_liste_bateaux(req,res,query)
-				break;
 			default:
 				req_statique(req, res, query);
 				break;
