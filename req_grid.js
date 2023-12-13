@@ -5,11 +5,11 @@
 const fs = require("fs");
 const nunjucks = require("nunjucks");;
 
-const req_grid = function() {
+const req_grid = function(id) {
 
 	let bateaux = JSON.parse(fs.readFileSync("./save_bateaux_1_2.json"))
     let grid = "";
-	let css;
+	let is_a_boat;
 
     for (let i = 0; i < 10; i++) 
 	{
@@ -21,19 +21,19 @@ const req_grid = function() {
 				{
 					if (bateaux[u][v].x === j && bateaux[u][v].y === i)
 					{
-						css = true;
+						is_a_boat = true;
 					}
 				}
 			}
-			if (css === true)
+			if (is_a_boat === true)
 			{
-				grid+= `<div class="btn2"><a type="submit" href="/req_bateaux?bouton=${i}-${j}"><input type="button"></a></div>`
+				grid+= `<div class="btn2"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
 			}
 			else
 			{
-				grid+= `<div class="btn"><a type="submit" href="/req_bateaux?bouton=${i}-${j}"><input type="button"></a></div>`
+				grid+= `<div class="btn"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
 			}
-			css = false;
+			is_a_boat = false;
 		}
     }
 	return grid;

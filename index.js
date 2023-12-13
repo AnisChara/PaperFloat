@@ -33,6 +33,7 @@ const traite_requete = function (req, res) {
 	requete = url.parse(req.url, true);
 	pathname = requete.pathname;
 	query = requete.query;
+	console.log(requete.cookie)
 
 	console.log("pathname : " + pathname);
     console.log("query string (x/y) : " + query.bouton);
