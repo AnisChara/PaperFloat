@@ -4,13 +4,13 @@ const fs = require("fs");
 
     
 
-
+const m_placement_bateau = require("./m_placement_bateau.js");
+const verification_position = require("./m_verif_placement_bateau_grille.js");
+const doublon = require("./m_verif_bateau_identique.js");
 
 const ultime_placement = function(player,party,co_case_choisi,rotate,bateau)
 {  
-    const m_placement_bateau = require("./m_placement_bateau.js");
-    const verification_position = require("./m_verif_placement_bateau_grille.js");
-    const doublon = require("./m_verif_bateau_identique.js");
+   
     
     let co_bateau;
 

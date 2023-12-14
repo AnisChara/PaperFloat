@@ -65,12 +65,13 @@ const req_bateaux = function (req, res, query) {
 	
 
     let grid = "";
-	grid = req_grid()
+	grid = req_grid(query.id)
 
 
 	marqueurs = {};
 	marqueurs.erreur = "";
 	marqueurs.grid = grid;
+	marqueurs.id = query.id;
 	page = nunjucks.renderString(page, marqueurs);
 
 	res.writeHead(200, { 'Content-Type': 'text/html' });
