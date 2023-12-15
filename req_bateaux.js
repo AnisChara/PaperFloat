@@ -4,23 +4,28 @@
 
 const fs = require("fs");
 const nunjucks = require("nunjucks");
-const req_grid = require("./req_grid.js");
+const req_grid = require("./m_grid.js");
 const { log } = require("console");
 const placement = require("./m_ultime_placement.js");
 const gen_bateaux = require("./m_liste_bateaux.js");
+const verif_all_place = require("./m_verif_all_place.js");
 
 const req_bateaux = function (req, res, query) {
 
 	let marqueurs;
 	let page;
 	let bouton;
-
+	let confirm;
+	let button_confirm = "";
 	// AFFICHAGE DE LA PAGE D'ACCUEIL
 
 	page = fs.readFileSync('page_placement.html', 'utf-8');
 
 	let bateau;
 	let rotate;
+
+
+	
 	if(query.reset)
 	{
 		gen_bateaux();
@@ -62,15 +67,22 @@ const req_bateaux = function (req, res, query) {
 			fs.writeFileSync("./save_bateaux_"+player+"_"+party+".json",bateaux,"UTF-8");
 		}
 	}
-	
-
+	confirm = verif_all_place("./save_bateaux_1_2.json")
+	if(confirm !== false) 
+	{
+		button_confirm = `<div class="valide">\n
+		<div class="confirm"><a href="page_tir.html?id={{ id }}"><input type="button" value="confirmer"></a></div>\n
+	</div>`
+	}
     let grid = "";
-	grid = req_grid()
+	grid = req_grid(query.id)
 
 
 	marqueurs = {};
 	marqueurs.erreur = "";
 	marqueurs.grid = grid;
+	marqueurs.id = query.id;
+	marqueurs.button_confirm = button_confirm;
 	page = nunjucks.renderString(page, marqueurs);
 
 	res.writeHead(200, { 'Content-Type': 'text/html' });

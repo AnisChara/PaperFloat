@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="reset">
-            <div class="btn4"><a href="/req_bateaux?reset=1"><input type="button" value="reset"></a></div>
+            <div class="btn4"><a href="/req_bateaux?reset=1&id={{ id }}"><input type="button" value="reset"></a></div>
         </div>
         <div class="tout">
             <div class="container">
@@ -15,18 +15,16 @@
                 <!--<div class="btn"><a href="/req_bateaux?bouton="><input type="button"></div>-->
             </div>
             <div class="bateau">
-                <div class="btn1"><a href="/req_bateaux?bateau=0"><input type="button"></a></div>
-                <div class="btn1"><a href="/req_bateaux?bateau=1"><input type="button"></a></div>
-                <div class="btn1"><a href="/req_bateaux?bateau=2"><input type="button"></a></div>
-                <div class="btn1"><a href="/req_bateaux?bateau=3"><input type="button"></a></div>
-                <div class="btn1"><a href="/req_bateaux?bateau=4"><input type="button"></a></div>
+                <div class="btn1"><a href="/req_bateaux?bateau=0&id={{ id }}"><input type="button"></a></div>
+                <div class="btn1"><a href="/req_bateaux?bateau=1&id={{ id }}"><input type="button"></a></div>
+                <div class="btn1"><a href="/req_bateaux?bateau=2&id={{ id }}"><input type="button"></a></div>
+                <div class="btn1"><a href="/req_bateaux?bateau=3&id={{ id }}"><input type="button"></a></div>
+                <div class="btn1"><a href="/req_bateaux?bateau=4&id={{ id }}"><input type="button"></a></div>
             </div>
         </div>
         <div class="rotate">
-            <div class="btn3"><a href="/req_bateaux?rotate=1"><input type="button" value="rotate"></a></div>
+            <div class="btn3"><a href="/req_bateaux?rotate=1&id={{ id }}"><input type="button" value="rotate"></a></div>
         </div>
-        <div class="valide">
-            <div class="confirm"><a href="page_tir"><input type="button" value="confirmer"></a></div>
-        </div>
+        {{ button_confirm | safe }}
     </body>
 </html>
