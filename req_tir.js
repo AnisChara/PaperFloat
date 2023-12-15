@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 const nunjucks = require("nunjucks");
-const m_grid = require("./req_grid.js");
+const m_grid = require("./m_grid.js");
 
 const req_tir = function (req, res, query)
 {
