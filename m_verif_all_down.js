@@ -29,7 +29,7 @@ const verif_all_down = function(save_bateaux)
     }
     return true;
 }
-
+module.exports = verif_all_down
 /*
 const save_bateaux = [
                     [  
