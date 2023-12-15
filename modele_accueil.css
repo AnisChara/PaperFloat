@@ -1,28 +1,110 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 body
 {
-    background: url(fond.webp) no-repeat;
-    background-size: cover;
-    height: 100vh;
-    background-position: left;
-    animation: move 40s ease-in-out infinite;
-}
-.main
-{
-    box-shadow: 1px 1px 3px white;
-}
-h1
-{
-    text-align: center;
-    font-size: 100px;
-    margin-top: 20%;
-}
-form 
-{
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#62a7df, #114d92)
 }
 
-.container{
+.login-box
+{
+    position: relative;
+    max-width: 400px;
+    height: 450px;
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    backdrop-filter: blur(55px);
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+
+em
+{
+    color: red;
+}
+
+h1
+{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+.box
+{
+    position: relative;
+    margin: 30px 0;
+    max-width: 310px;
+    border-bottom: 2px solid #fff;
+}
+
+input:focus~label,
+input:valid~label
+{
+    top: -20px;
+    left: 0;
+    color: #fff;
+    font-size: 12px;
+}
+
+input
+{
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    font-size: 16px;
+    padding: 10px 0;
+}
+
+label
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: 5s;
+}
+
+
+
+.register 
+{
+    font-size: 0.9em;
+    color: #fff;
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+p 
+{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+a
+{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover
+{
+    text-decoration: underline;
 }

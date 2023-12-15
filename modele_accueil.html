@@ -5,20 +5,24 @@
 		<link rel="stylesheet" type="text/css" href="modele_accueil.css">
 		<meta charset="utf-8">
 	</head>
-	<body>
-		<h2>Mon PI</h2>
-
-		{{ erreur }}
-
-		<form action="/req_identifier" method="GET">
-			<input type="text" name="pseudo" value="{{ pseudo }}">
-			<br/>
-			<input type="password" name="password" value="">
-			<br/>
-			<input type="submit" name="action" value="Se connecter">
-		</form>
-
-		<a href="/req_afficher_formulaire_inscription"><button>Créer compte</button></a>
-
-	</body>
+		<body>
+			<div class="login-box">
+				<form action="/req_identifier" method="GET">
+					<h1>login</h1>
+					<em>{{ erreur }}</em>
+					<div class = "box">
+						<input type="text" name="pseudo" value="{{ pseudo }}">
+						<label>Pseudo</label>
+					</div>
+					<div class = "box">
+						<input type="password" name="password" value="">
+					<label>Mot de passe</label>
+					</div>
+						<input type="submit" name="action" value="Se connecter">
+					<div class="register">
+						<p>pas encore de compte ? <a href="/req_afficher_formulaire_inscription">Créer compte</a></p>
+					</div>
+				</form>
+			</div>
+		</body>
 </html>
