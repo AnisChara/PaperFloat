@@ -40,7 +40,7 @@ const req_bateaux = function (req, res, query) {
 		return;
 	}
 	
-	while(tmp != true)
+	while(tmp !== true)
 	{
 		try{
 				if (adverse)
