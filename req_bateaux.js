@@ -42,19 +42,22 @@ const req_bateaux = function (req, res, query) {
 	
 	while(tmp !== true)
 	{
-		try{
-				if (adverse)
-				{
-					marqueurs.adverse = adverse;
-					data = fs.readFileSync("./data/"+id+".json");
-					tmp = true;
-				}
+		try
+		{	
+			if (adverse)
+			{
+				marqueurs.adverse = adverse;
+				data = fs.readFileSync("./data/"+query.id+".json");
+				tmp = true;
 			}
+		}
 	
 		catch(e)
 		{
 			console.log(e.message);
 			console.log(e.stack);
+			let data = {"id" : query.id,"adverse" : adverse, "rotate" : 0, "bateau_edit" : null, "progress" : false, "bateaux" : "./save_bateaux_"+query.id+".json"};
+			fs.writeFileSync("./data/"+query.id+".json", data, "UTF-8");
 		}
 	}
 
