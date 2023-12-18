@@ -9,21 +9,39 @@ const { log } = require("console");
 const placement = require("./m_ultime_placement.js");
 const gen_bateaux = require("./m_liste_bateaux.js");
 const verif_all_place = require("./m_verif_all_place.js");
+const party_placer = require("./m_party_placer.js");
 
 const req_bateaux = function (req, res, query) {
 
-	let marqueurs;
+	let marqueurs = {};
 	let page;
 	let bouton;
 	let confirm;
 	let button_confirm = "";
+	let adverse;
 	// AFFICHAGE DE LA PAGE D'ACCUEIL
 
-	page = fs.readFileSync('page_placement.html', 'utf-8');
+	page = fs.readFileSync('./page_placement.html', 'utf-8');
 
 	let bateau;
 	let rotate;
 
+	adverse = party_placer(query.id);
+
+	if (!adverse)
+	{
+		page = fs.readFileSync("./loading3.html", 'utf-8');
+		marqueurs.id = query.id;
+		page = nunjucks.renderString(page, marqueurs);
+		res.writeHead(200, { 'Content-Type': 'text/html' });
+		res.write(page);
+		res.end();
+		return;
+	}
+	if (adverse)
+	{
+		marqueurs.adverse = adverse;
+	}
 
 	
 	if(query.reset)
@@ -71,14 +89,13 @@ const req_bateaux = function (req, res, query) {
 	if(confirm !== false) 
 	{
 		button_confirm = `<div class="valide">\n
-		<div class="confirm"><a href="page_tir.html?id={{ id }}"><input type="button" value="confirmer"></a></div>\n
+		<div class="confirm"><a href="page_tir.html?id={{ id }}&adverse={{ adverse }}"><input type="button" value="confirmer"></a></div>\n
 	</div>`
 	}
     let grid = "";
 	grid = req_grid(query.id)
 
 
-	marqueurs = {};
 	marqueurs.erreur = "";
 	marqueurs.grid = grid;
 	marqueurs.id = query.id;
