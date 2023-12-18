@@ -17,7 +17,7 @@ const ultime_placement = function(id,co_case_choisi,rotate,bateau)
     //je recupere la sauvegarde des bateaux selon le joueur et la partie
     let bateaux = fs.readFileSync("./save_bateaux_"+id+".json");
     bateaux = JSON.parse(bateaux);
-    let nb_bateau = bateau;
+    let nb_bateau = Number(bateau);
     bateau = bateaux[bateau];
 
     //execution des programmes

@@ -49,6 +49,7 @@ const req_bateaux = function (req, res, query) {
 			{
 				marqueurs.adverse = adverse;
 				data = JSON.parse(fs.readFileSync("./data/"+query.id+".json"));
+				data.adverse = adverse;
 				tmp = true;
 			}
 		}
@@ -61,6 +62,7 @@ const req_bateaux = function (req, res, query) {
 			data = JSON.stringify(data);
 			fs.writeFileSync("./data/"+query.id+".json", data, "UTF-8");
 			data = JSON.parse(fs.readFileSync("./data/"+query.id+".json"));
+			data.adverse = adverse;
 		}
 	}
 	if(query.reset || data.progress === false)
@@ -91,10 +93,10 @@ const req_bateaux = function (req, res, query) {
 		co = co.split("-");
 		co = {x:Number(co[1]),y:Number(co[0])};
 		bateaux = placement(query.id,co,rotate,data.bateau_edit);
+		bateaux = JSON.stringify(bateaux);
 		
 		if(bateaux !== "false")
 		{ 
-			bateaux = JSON.stringify(bateaux);
 			fs.writeFileSync("./save_bateaux_"+query.id+".json",bateaux,"UTF-8");
 		}
 	}
@@ -104,9 +106,8 @@ const req_bateaux = function (req, res, query) {
 	if(confirm !== false) 
 	{
 		button_confirm = `<div class="valide">\n
-		<div class="confirm"><a href="req_tir?id="{{ id }}"&adverse={{ adverse }}"><input type="button" value="confirmer"></a></div>\n
+		<div class="confirm"><a href="req_tir?id=${query.id}&adverse=${data.adverse}"><input type="button" value="confirmer"></a></div>\n
 	</div>`;
-		log(query.id);
 	}
 
 	data = JSON.stringify(data);
