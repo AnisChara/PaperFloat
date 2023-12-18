@@ -6,7 +6,8 @@ let grid = require(".\req_grid.js")
 const url = require("url");
 const http = require("http");
 const { isUndefined } = require("util");
-const tir=function(serveur)
+
+const tir_case = function(serveur)
 {
     if (query === isUndefined)
     {
@@ -27,3 +28,5 @@ const tir=function(serveur)
         }
     }
 }
+
+module.exports = tir_case;
