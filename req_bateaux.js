@@ -19,6 +19,7 @@ const req_bateaux = function (req, res, query) {
 	let confirm;
 	let button_confirm = "";
 	let adverse;
+	let tmp = false;
 	// AFFICHAGE DE LA PAGE D'ACCUEIL
 
 	page = fs.readFileSync('./page_placement.html', 'utf-8');
@@ -38,10 +39,23 @@ const req_bateaux = function (req, res, query) {
 		res.end();
 		return;
 	}
-	if (adverse)
+	
+	while(tmp != true)
 	{
-		marqueurs.adverse = adverse;
-		data = fs.readFileSync("./data/"+id+".json");
+		try{
+				if (adverse)
+				{
+					marqueurs.adverse = adverse;
+					data = fs.readFileSync("./data/"+id+".json");
+					tmp = true;
+				}
+			}
+	
+		catch(e)
+		{
+			console.log(e.message);
+			console.log(e.stack);
+		}
 	}
 
 	
