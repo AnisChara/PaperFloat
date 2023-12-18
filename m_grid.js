@@ -27,11 +27,11 @@ const m_grid = function(id) {
 			}
 			if (is_a_boat === true)
 			{
-				grid+= `<div class="btn2"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+				grid+= `<div class="case_bateau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
 			}
 			else
 			{
-				grid+= `<div class="btn"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+				grid+= `<div class="case_eau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
 			}
 			is_a_boat = false;
 		}
