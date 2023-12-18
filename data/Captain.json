@@ -1,1 +1,1 @@
-{"id":"Captain","adverse":"Sheet","rotate":0,"bateau_edit":null,"progress":false,"bateaux":"./save_bateaux_Captain.json"}
+{"id":"Captain","adverse":"Sheet","rotate":2,"bateau_edit":"3","progress":"req_bateaux.js","bateaux":"./save_bateaux_Captain.json"}

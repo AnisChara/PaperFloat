@@ -20,6 +20,7 @@ const req_bateaux = function (req, res, query) {
 	let button_confirm = "";
 	let adverse;
 	let tmp = false;
+	let data;
 	// AFFICHAGE DE LA PAGE D'ACCUEIL
 
 	page = fs.readFileSync('./page_placement.html', 'utf-8');
@@ -47,7 +48,7 @@ const req_bateaux = function (req, res, query) {
 			if (adverse)
 			{
 				marqueurs.adverse = adverse;
-				data = fs.readFileSync("./data/"+query.id+".json");
+				data = JSON.parse(fs.readFileSync("./data/"+query.id+".json"));
 				tmp = true;
 			}
 		}
@@ -56,33 +57,29 @@ const req_bateaux = function (req, res, query) {
 		{
 			console.log(e.message);
 			console.log(e.stack);
-			let data = {"id" : query.id,"adverse" : adverse, "rotate" : 0, "bateau_edit" : null, "progress" : false, "bateaux" : "./save_bateaux_"+query.id+".json"};
+			data = {"id" : query.id,"adverse" : adverse, "rotate" : 0, "bateau_edit" : null, "progress" : false, "bateaux" : "./save_bateaux_"+query.id+".json"};
+			data = JSON.stringify(data);
 			fs.writeFileSync("./data/"+query.id+".json", data, "UTF-8");
+			data = JSON.parse(fs.readFileSync("./data/"+query.id+".json"));
 		}
 	}
-
-	
-	if(query.reset)
+	if(query.reset || data.progress === false)
 	{
-		gen_bateaux();
+		gen_bateaux(query.id);
+		if (data.progress === false) data.progress = "req_bateaux.js";
 	}
 	if(query.rotate)
 	{
-		let nb_rotate = JSON.parse(fs.readFileSync("./rotate.json"))
-		nb_rotate = nb_rotate + Number(query.rotate);
-		fs.writeFileSync("rotate.json",String(nb_rotate),"UTF-8");
+		data.rotate = data.rotate + Number(query.rotate);
 	}
 	if(query.bateau)
 	{
-		bateau = query.bateau
-		fs.writeFileSync("./bateau_edit.json",bateau,"UTF-8");
+		data.bateau_edit = query.bateau;
 	}
 	if(query.bouton)
 	{
-		let bateaux = JSON.parse(fs.readFileSync("./save_bateaux"+id+".json"));
-		let bateau = JSON.parse(fs.readFileSync("./bateau_edit.json"));
-		let nb_rotate = JSON.parse(fs.readFileSync("./rotate.json"));
-		if (nb_rotate%2 === 0)
+		let bateaux = JSON.parse(fs.readFileSync("./save_bateaux_"+query.id+".json"));
+		if (data.rotate%2 === 0)
 		{
 			rotate = false;
 		}
@@ -90,26 +87,30 @@ const req_bateaux = function (req, res, query) {
 		{
 			rotate = true;
 		}
-		let party = 2;
-		let player = 1;
 		let co = query.bouton;
 		co = co.split("-");
 		co = {x:Number(co[1]),y:Number(co[0])};
-		bateaux = placement(player,party,co,rotate,bateau);
-		bateaux = JSON.stringify(bateaux);
+		bateaux = placement(query.id,co,rotate,data.bateau_edit);
 		
 		if(bateaux !== "false")
 		{ 
-			fs.writeFileSync("./save_bateaux_"+player+"_"+party+".json",bateaux,"UTF-8");
+			bateaux = JSON.stringify(bateaux);
+			fs.writeFileSync("./save_bateaux_"+query.id+".json",bateaux,"UTF-8");
 		}
 	}
-	confirm = verif_all_place("./save_bateaux_1_2.json")
+
+	confirm = verif_all_place("./save_bateaux_"+query.id+".json");
+
 	if(confirm !== false) 
 	{
 		button_confirm = `<div class="valide">\n
-		<div class="confirm"><a href="req_tir?id={{ id }}&adverse={{ adverse }}"><input type="button" value="confirmer"></a></div>\n
-	</div>`
+		<div class="confirm"><a href="req_tir?id="{{ id }}"&adverse={{ adverse }}"><input type="button" value="confirmer"></a></div>\n
+	</div>`;
+		log(query.id);
 	}
+
+	data = JSON.stringify(data);
+	fs.writeFileSync("./data/"+query.id+".json", data, "UTF-8");
     let grid = "";
 	grid = req_grid(query.id)
 

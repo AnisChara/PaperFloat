@@ -7,7 +7,7 @@ const nunjucks = require("nunjucks");;
 
 const m_grid = function(id) {
 
-	let bateaux = JSON.parse(fs.readFileSync("./save_bateaux_1_2.json"))
+	let bateaux = JSON.parse(fs.readFileSync("./save_bateaux_"+id+".json"))
     let grid = "";
 	let is_a_boat;
 
