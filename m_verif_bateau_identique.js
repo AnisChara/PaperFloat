@@ -2,10 +2,10 @@
 
 const fs = require("fs");
 
-const doublon = function(co_bateau, player, party, nb_bateau)
+const doublon = function(co_bateau, id, nb_bateau)
 {   
     //je recupere la liste des bateaux du joueur
-    let bateaux = fs.readFileSync("./save_bateaux_"+player+"_"+party+".json")
+    let bateaux = fs.readFileSync("./save_bateaux_"+id+".json")
     bateaux = JSON.parse(bateaux);
 
    // je rentre pour commencer dans la liste bateaux où il y a tous mes bateaux 
