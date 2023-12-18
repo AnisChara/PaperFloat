@@ -2,21 +2,26 @@
 <html>
 	<head>
 		<title>Formulaire inscription</title>
+		<link rel="stylesheet" type="text/css" href="modele_formulaire_inscription.css">
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h2>Formulaire de création de compte</h2>
-
-		{{ erreur | safe }}
-
-		<form action="/req_inscrire" method="GET">
-			<label>Pseudo :</label>
-			<input type="text" name="pseudo" value="{{ pseudo }}">
-			<br/>
-			<label>Mot de passe :</label>
-			<input type="text" name="password" value="">
-			<br/>
-			<button name="action" value="creer">Créer compte</button>
-		</form>
+		<div class="login-box">
+					<form action="/req_inscrire" method="GET">
+						<h1>Création du compte</h1>
+						<em>{{ erreur | safe }}</em>
+						<div class = box >
+							<input type="text" name="pseudo" value="{{ pseudo }}">
+							<label>Pseudo</label>
+						</div>
+						<div class ="box">
+							<input type="text" name="password" value="">
+							<label>Mot de passe</label>
+						</div>
+					<div class="create">
+						<input type="submit" name="action" value="créer un compte"></a>
+					</div>
+			</form>
+		</div>
 	</body>
 </html>
