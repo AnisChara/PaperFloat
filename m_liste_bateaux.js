@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 //fonction qui genere les bateaux
-const create_bateaux = function()
+const create_bateaux = function(id)
 {
 let bateau_1 = [];
 let bateau_3_A = [];
@@ -50,7 +50,7 @@ let bateaux = [
 ]
 
 bateaux = JSON.stringify(bateaux);
-fs.writeFileSync("./save_bateaux_1_2.json",bateaux,"UTF-8")
+fs.writeFileSync("./save_bateaux_"+id+".json",bateaux,"UTF-8")
 }
 /*let player=1;
 let party = 2*/

@@ -41,6 +41,7 @@ const req_bateaux = function (req, res, query) {
 	if (adverse)
 	{
 		marqueurs.adverse = adverse;
+		data = fs.readFileSync("./data/"+id+".json");
 	}
 
 	
@@ -61,7 +62,7 @@ const req_bateaux = function (req, res, query) {
 	}
 	if(query.bouton)
 	{
-		let bateaux = JSON.parse(fs.readFileSync("./save_bateaux_1_2.json"));
+		let bateaux = JSON.parse(fs.readFileSync("./save_bateaux"+id+".json"));
 		let bateau = JSON.parse(fs.readFileSync("./bateau_edit.json"));
 		let nb_rotate = JSON.parse(fs.readFileSync("./rotate.json"));
 		if (nb_rotate%2 === 0)
