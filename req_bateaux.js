@@ -80,7 +80,7 @@ const req_bateaux = function (req, res, query) {
 	}
 	if(query.bouton)
 	{
-		let bateaux = JSON.parse(fs.readFileSync("./save_bateaux_"+query.id+".json"));
+		let bateaux = JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+query.id+".json"));
 		if (data.rotate%2 === 0)
 		{
 			rotate = false;
@@ -97,11 +97,11 @@ const req_bateaux = function (req, res, query) {
 		
 		if(bateaux !== "false")
 		{ 
-			fs.writeFileSync("./save_bateaux_"+query.id+".json",bateaux,"UTF-8");
+			fs.writeFileSync("./bateaux/save_bateaux_"+query.id+".json",bateaux,"UTF-8");
 		}
 	}
 
-	confirm = verif_all_place("./save_bateaux_"+query.id+".json");
+	confirm = verif_all_place("./bateaux/save_bateaux_"+query.id+".json");
 
 	if(confirm !== false) 
 	{
