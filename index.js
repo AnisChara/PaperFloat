@@ -16,6 +16,7 @@ const req_inscrire = require("./req_inscrire.js");
 const req_identifier = require("./req_identifier.js");
 const req_bateaux = require("./req_bateaux.js");
 const req_tir = require("./req_tir.js");
+const req_afficher_regles = require("./req_afficher_regles.js");
 
 const req_statique = require("./req_statique.js");
 const req_erreur = require("./req_erreur.js");
@@ -61,6 +62,9 @@ const traite_requete = function (req, res) {
 				break;
 			case '/req_tir':
 				req_tir(req, res, query)
+				break;
+			case '/req_afficher_regles':
+				req_afficher_regles(req, res, query)
 				break;
 			default:
 				req_statique(req, res, query);
