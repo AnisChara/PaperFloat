@@ -58,7 +58,7 @@ const req_bateaux = function (req, res, query) {
 		{
 			console.log(e.message);
 			console.log(e.stack);
-			data = {"id" : query.id,"adverse" : adverse, "rotate" : 0, "bateau_edit" : null, "progress" : false, "bateaux" : "./save_bateaux_"+query.id+".json"};
+			data = {"id" : query.id,"adverse" : adverse, "rotate" : false, "bateau_edit" : null, "progress" : false, "bateaux" : "./save_bateaux_"+query.id+".json"};
 			data = JSON.stringify(data);
 			fs.writeFileSync("./data/"+query.id+".json", data, "UTF-8");
 			data = JSON.parse(fs.readFileSync("./data/"+query.id+".json"));
@@ -72,7 +72,8 @@ const req_bateaux = function (req, res, query) {
 	}
 	if(query.rotate)
 	{
-		data.rotate = data.rotate + Number(query.rotate);
+		if (data.rotate === false) data.rotate = true;
+		if (data.rotate === true) data.rotate = false;
 	}
 	if(query.bateau)
 	{
@@ -81,14 +82,7 @@ const req_bateaux = function (req, res, query) {
 	if(query.bouton)
 	{
 		let bateaux = JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+query.id+".json"));
-		if (data.rotate%2 === 0)
-		{
-			rotate = false;
-		}
-		else 
-		{
-			rotate = true;
-		}
+		rotate = data.rotate;
 		let co = query.bouton;
 		co = co.split("-");
 		co = {x:Number(co[1]),y:Number(co[0])};

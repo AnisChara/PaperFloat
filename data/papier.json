@@ -1,1 +1,1 @@
-{"id":"papier","adverse":"Captain","rotate":0,"bateau_edit":"4","progress":"req_bateaux.js","bateaux":"./save_bateaux_papier.json"}
+{"id":"papier","adverse":"float","rotate":false,"bateau_edit":"4","progress":"req_bateaux.js","bateaux":"./save_bateaux_papier.json"}
