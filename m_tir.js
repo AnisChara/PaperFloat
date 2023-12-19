@@ -8,7 +8,7 @@ const tir_grid = function(grille,liste_bateaux,co_tir,player)
     const co_x = co_tir.x;
     const co_y = co_tir.y;
 
-    if(co_x > 9 || co_y > 9)
+    if(co_x > 9 || co_y > 9 || co_x < 0 || co_y < 0)
     {
         return false;
     }
