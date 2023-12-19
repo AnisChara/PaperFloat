@@ -50,7 +50,7 @@ let bateaux = [
 ]
 
 bateaux = JSON.stringify(bateaux);
-fs.writeFileSync("./save_bateaux_"+id+".json",bateaux,"UTF-8")
+fs.writeFileSync("./bateaux/save_bateaux_"+id+".json",bateaux,"UTF-8")
 }
 /*let player=1;
 let party = 2*/
