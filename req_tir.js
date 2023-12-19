@@ -2,7 +2,7 @@
 
 const fs = require("fs");
 const nunjucks = require("nunjucks");
-const m_grid = require("./m_grid.js");
+const m_grid_nc = require("./m_grid_prv_nc.js");
 
 const req_tir = function (req, res, query)
 {
@@ -11,12 +11,12 @@ const req_tir = function (req, res, query)
 
     page = fs.readFileSync("page_tir.html", "utf-8");
 
-    let grid = "";
-    grid = m_grid(query.id);
+    let grid_nc = "";
+    grid_nc = m_grid_nc(query.id);
 
     marqueurs = {};
     marqueurs.erreur = "";
-	marqueurs.grid = grid;
+	marqueurs.grid_nc = grid_nc;
     marqueurs.id = query.id;
 	page = nunjucks.renderString(page, marqueurs);
 

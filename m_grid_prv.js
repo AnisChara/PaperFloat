@@ -5,7 +5,7 @@
 const fs = require("fs");
 const nunjucks = require("nunjucks");;
 
-const m_grid = function(id) {
+const m_grid_prv = function(id) {
 
 	let bateaux = JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+id+".json"))
     let grid = "";
@@ -39,4 +39,4 @@ const m_grid = function(id) {
 	return grid;
 };
 
-module.exports = m_grid;
+module.exports = m_grid_prv;
