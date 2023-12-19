@@ -41,6 +41,9 @@ const trait = function (req, res, query) {
 
 		contenu_fichier = JSON.stringify(listeMembres);
 		fs.writeFileSync("membres.json", contenu_fichier, 'utf-8');
+		let data = {"id" : nouveauMembre.pseudo,"adverse" : "", "rotate" : 0, "bateau_edit" : null, "progress" : false, "bateaux" : "./save_bateaux_"+nouveauMembre.pseudo+".json"};
+		data = JSON.stringify(data);
+		fs.writeFileSync("./data/"+nouveauMembre.pseudo+".json", data, "UTF-8");
 	}
 
 	// ON RENVOIT UNE PAGE HTML 
