@@ -2,22 +2,22 @@
 <html>
 	<head>
 		<title>Confirmation inscription</title>
+		<link rel="stylesheet" type="text/css" href="modele_confirmation_inscription.css">
 		<link rel="icon" type="image/x-icon" href="logo_paper.png">
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h2>Confirmation de création de compte</h2>
-
-		<p>
-			Votre compte a bien été créé. Notez bien votre pseudo :
-			<em>{{ pseudo }}</em>
-			et votre mot de passe :
-			<em>{{ password }}</em>
-		</p>
-
-		<p>
-			Cliquez sur le lien ci-dessous pour revenir à la page d'accueil pour vous identifier.
-		</p>
-		<a href="/">Revenir à la page d'accueil</a>
+	    <div class="titre">
+			<h1>Confirmation de création de compte</h1>
+		</div>
+	   	 <div class="login-box">
+		    <div class = "box">
+				<p>Votre compte a bien été créé.</p>
+				<p>Notez bien votre pseudo : <em>{{ pseudo }}</em>.</p>
+				<p>Votre mot de passe : <em>{{ password }}</em>.</p>
+				<p>Cliquez sur le lien ci-dessous pour revenir à la page d'accueil pour vous identifier.</p>
+				<a href="modele_accueil.html">Revenir à la page d'accueil</a>
+			</div>
+		</div>
 	</body>
 </html>
