@@ -1,42 +1,52 @@
-// Traitement de "req_commencer"
-
 "use strict";
-
+ 
 const fs = require("fs");
 const nunjucks = require("nunjucks");;
-
+ 
 const m_grid_publique = function(id) {
-
-	let bateaux = JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+id+".json"))
+ 
+    let bateaux = JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+id+".json"))
     let grid = "";
-	let is_a_boat;
+	let i;
+	let j;
+    let is_a_boat_touch = `<div class="btn2"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+    let is_a_boat_down = `<div class="btn3"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+    let full_boat = 0;
+		
+    for (i = 0; i < 10; i++)
+    { 
+        for (j = 0; j < 10; j++ )
+        {
+			let css = `<div class="btn"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
 
-    for (let i = 0; i < 10; i++) 
-	{
-		for ( let j = 0; j < 10; j++ ) 
-		{
-			for (let u= 0; u < bateaux.length; u++)
-			{
-				for (let v = 0; v < bateaux[u].length; v++)
-				{
-					if (bateaux[u][v].x === j && bateaux[u][v].y === i && bateaux[u][v].state === true )
-					{
-						is_a_boat = true;
-					}
-				}
-			}
-			if (is_a_boat === true)
-			{
-				grid+= `<div class="btn2"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
-			}
-			else
-			{
-				grid+= `<div class="btn"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
-			}
-			is_a_boat = false;
-		}
+            for (let u= 0; u < bateaux.length; u++)
+            {
+                for (let v = 0; v < bateaux[u].length; v++)
+                {
+                    if (bateaux[u][v].x === j && bateaux[u][v].y === i && bateaux[u][v].state === true )
+                    {
+                        for (let a = 0; a< bateaux[u].length; a++)
+                        {
+                            if(bateaux[u][a].state === true) full_boat++;
+                        }
+                        if(full_boat === bateaux[u].length) 
+						{
+							css = is_a_boat_down
+						}
+                        else
+						{
+							css = is_a_boat_touch;
+						}
+						full_boat = 0;
+                    }
+                }
+            }
+                grid += css;
+				css = `<div class="btn"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+
+        }
     }
-	return grid;
+    return grid;
 };
-
+ 
 module.exports = m_grid_publique;
