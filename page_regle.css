@@ -2,3 +2,42 @@
 {
     border: 20px solid black;
 }
+body
+{
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#62a7df, #114d92)
+}
+.login-box
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 3rem;
+}
+.box
+{
+    position: relative;
+    max-width: 700px;
+    height: 300px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 20px;
+    backdrop-filter: blur(55px);
+}
+h1
+{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+a
+{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+a:hover
+{
+    text-decoration: underline;
+}
