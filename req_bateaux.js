@@ -73,7 +73,7 @@ const req_bateaux = function (req, res, query) {
 	if(query.rotate)
 	{
 		if (data.rotate === false) data.rotate = true;
-		if (data.rotate === true) data.rotate = false;
+		else if (data.rotate === true) data.rotate = false;
 	}
 	if(query.bateau)
 	{
