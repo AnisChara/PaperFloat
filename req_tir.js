@@ -3,6 +3,7 @@
 const fs = require("fs");
 const nunjucks = require("nunjucks");
 const m_grid_nc = require("./m_grid_prv_nc.js");
+const m_grid_publique = require("./m_grid_publique.js")
 
 const req_tir = function (req, res, query)
 {
@@ -14,9 +15,13 @@ const req_tir = function (req, res, query)
     let grid_nc = "";
     grid_nc = m_grid_nc(query.id);
 
+    let grid_publique = "";
+    grid_publique = m_grid_publique(query.id);
+
     marqueurs = {};
     marqueurs.erreur = "";
 	marqueurs.grid_nc = grid_nc;
+    marqueurs.grid_publique = grid_publique;
     marqueurs.id = query.id;
 	page = nunjucks.renderString(page, marqueurs);
 
