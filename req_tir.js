@@ -16,7 +16,7 @@ const req_tir = function (req, res, query)
     grid_nc = m_grid_nc(query.id);
 
     let grid_publique = "";
-    grid_publique = m_grid_publique(query.id);
+    grid_publique = m_grid_publique(query.adverse);
 
     marqueurs = {};
     marqueurs.erreur = "";
