@@ -1,6 +1,6 @@
 "use strict";
 
-const traitement_sauvegarde = require("./Fonction_sauvegarde")
+//const traitement_sauvegarde = require("./Fonction_sauvegarde")
 
 const verif_tir_case = function(pos,grid) // fonction qui regarde si la case a la position donné dans la grille a déja subie un tir. 
 {
@@ -9,7 +9,6 @@ const verif_tir_case = function(pos,grid) // fonction qui regarde si la case a l
 
     if(grid[posY][posX] ==="false") // si la case n'est pas touchée alors on la passe en true touchée
     {
-        grid [posY][posX] ==="true";
         return true; // return true "tir valide"
     }
 
@@ -23,4 +22,5 @@ const verif_tir_case = function(pos,grid) // fonction qui regarde si la case a l
     }
 }
 
-traitement_sauvegarde(grid,verif_tir_case,pos,grid); //appelle de la fonction qui va modifier la sauvegarde de la grille
+module.exports = verif_tir_case;
+//traitement_sauvegarde(grid,verif_tir_case,pos,grid); //appelle de la fonction qui va modifier la sauvegarde de la grille
