@@ -19,7 +19,7 @@ const m_grid_publique = function(id) {
 			{
 				for (let v = 0; v < bateaux[u].length; v++)
 				{
-					if (bateaux[u][v].x === j && bateaux[u][v].y === i)
+					if (bateaux[u][v].x === j && bateaux[u][v].y === i && bateaux[u][v].state === true )
 					{
 						is_a_boat = true;
 					}
