@@ -10,15 +10,15 @@ const m_verif_tir_case = require("./m_verif_tir_case.js");
 
 const ultime_tir = function(grille,co,bateau,adverse)
 {
-    if(m_verif_tir_case(co,grille))
+    if(m_verif_tir_case(co,grille) === true)
     {
         const result = m_tir(grille,bateau,co)
 
-        fs.writeFileSync("./save_grille_"+adverse+".json",JSON.stringify(result[0]),"utf-8");
+        fs.writeFileSync("./grille/save_grille_"+adverse+".json",JSON.stringify(result[0]),"utf-8");
         
-        if(result[1] != undefined)
+        if(result[1] !== undefined)
         {
-            fs.writeFileSync("./save_bateaux_",JSON.stringify(result[1]),"utf-8")
+            fs.writeFileSync("./bateaux/save_bateaux_"+adverse+".json",JSON.stringify(result[1]),"utf-8")
         }
 
         return true;

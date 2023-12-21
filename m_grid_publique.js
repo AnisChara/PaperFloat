@@ -3,21 +3,21 @@
 const fs = require("fs");
 const nunjucks = require("nunjucks");;
  
-const m_grid_publique = function(id) {
+const m_grid_publique = function( adverse,id) {
  
-    let bateaux = JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+id+".json"))
+    let bateaux = JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+adverse+".json"))
     let grid = "";
 	let i;
 	let j;
-    let is_a_boat_touch = `<div class="btn2"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
-    let is_a_boat_down = `<div class="btn3"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+    let is_a_boat_touch = `<div class="btn2"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button"></a></div>`
+    let is_a_boat_down = `<div class="btn3"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button"></a></div>`
     let full_boat = 0;
 		
     for (i = 0; i < 10; i++)
     { 
         for (j = 0; j < 10; j++ )
         {
-			let css = `<div class="btn"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+			let css = `<div class="btn"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button"></a></div>`
 
             for (let u= 0; u < bateaux.length; u++)
             {
@@ -42,7 +42,7 @@ const m_grid_publique = function(id) {
                 }
             }
                 grid += css;
-				css = `<div class="btn"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+				css = `<div class="btn"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button"></a></div>`
 
         }
     }

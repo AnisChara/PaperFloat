@@ -18,7 +18,7 @@ const tir_grid = function(grille,liste_bateaux,co_tir)
         grille[co_x][co_y] = true;
 
 
-        for(let bateau = 0; bateau < liste_bateaux; bateau++)
+        for(let bateau = 0; bateau < liste_bateaux.length; bateau++)
         {
             for(let cellule = 0; cellule < liste_bateaux[bateau].length; cellule++)
             {
