@@ -10,7 +10,7 @@ let membres = JSON.parse(fs.readFileSync("./membres.json"));
 
 for (let i = 0; i < membres.length; i++)
 {
-    let data = {"id" : membres[i].pseudo,"adverse" : "", "rotate" : false, "bateau_edit" : 0, "progress" : false, "bateaux" : "./save_bateaux_"+membres[i].pseudo+".json"};
+    let data = {"id" : membres[i].pseudo,"adverse" : "", "rotate" : false, "bateau_edit" : 0, "progress" : false, "bateaux" : "./save_bateaux_"+membres[i].pseudo+".json", "status" : ""};
     data = JSON.stringify(data);
     fs.writeFileSync("./data/"+membres[i].pseudo+".json", data, "UTF-8");
     gen_bateaux(membres[i].pseudo);
