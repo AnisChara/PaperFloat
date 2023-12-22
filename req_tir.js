@@ -10,7 +10,7 @@ const { stringify } = require("querystring");
 
 const req_tir = function (req, res, query)
 {
-    let marqueurs;
+    let marqueurs = {};
     let page;
     let id = query.id;
     let adverse;
@@ -19,6 +19,22 @@ const req_tir = function (req, res, query)
 
     let data = JSON.parse(fs.readFileSync("./data/"+id+".json"));	
         adverse = data.adverse;
+        data.status = "playing";
+        data = JSON.stringify(data);
+        fs.writeFileSync("./data/"+id+".json",data, "UTF-8");
+
+    let data_adverse = JSON.parse(fs.readFileSync("./data/"+adverse+".json"));
+    if (data_adverse.status === "placing")
+    {
+        page = fs.readFileSync("./loading_tir.html", 'utf-8');
+		marqueurs.id = id;
+        marqueurs.adverse = adverse;
+		page = nunjucks.renderString(page, marqueurs);
+		res.writeHead(200, { 'Content-Type': 'text/html' });
+		res.write(page);
+		res.end();
+		return;
+    }
 
     if (data.progress === "req_bateaux")
     {

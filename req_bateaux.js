@@ -50,6 +50,7 @@ const req_bateaux = function (req, res, query) {
 				marqueurs.adverse = adverse;
 				data = JSON.parse(fs.readFileSync("./data/"+query.id+".json"));
 				data.adverse = adverse;
+				data.status = "placing";
 				tmp = true;
 			}
 		}
@@ -58,11 +59,7 @@ const req_bateaux = function (req, res, query) {
 		{
 			console.log(e.message);
 			console.log(e.stack);
-			data = {"id" : query.id,"adverse" : adverse, "rotate" : false, "bateau_edit" : null, "progress" : false, "bateaux" : "./save_bateaux_"+query.id+".json"};
-			data = JSON.stringify(data);
-			fs.writeFileSync("./data/"+query.id+".json", data, "UTF-8");
-			data = JSON.parse(fs.readFileSync("./data/"+query.id+".json"));
-			data.adverse = adverse;
+			data = {"id" : query.id,"adverse" : adverse, "rotate" : false, "bateau_edit" : 0, "progress" : false, "bateaux" : "./save_bateaux_"+query.id+".json", status : "placing"};
 		}
 	}
 	if(query.reset || data.progress === false)
