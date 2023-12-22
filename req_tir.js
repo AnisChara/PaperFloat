@@ -59,12 +59,8 @@ const req_tir = function (req, res, query)
         let co = query.bouton;
 		co = co.split("-");
 		co = {x:Number(co[1]),y:Number(co[0])};
-        if (co.x <= 9 && co.x >= 0 && co.y <= 9 && co.y >= 0)
-        {
-            result = tir(grille, co, liste_bateaux,adverse);
-        }
-        else 
-        {}
+        result = tir(grille, co, liste_bateaux,adverse);
+   
     
     }
     let grid_nc = "";

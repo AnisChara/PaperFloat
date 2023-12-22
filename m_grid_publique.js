@@ -8,13 +8,11 @@ const m_grid_publique = function( adverse,id) {
     let bateaux = JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+adverse+".json"))
     let grille_t = JSON.parse(fs.readFileSync("./grille/save_grille_"+adverse+".json"))
     let grid = "";
-	let i;
-	let j;
     let full_boat = 0;
 		
-    for (i = 0; i < 10; i++)
+    for (let i = 0; i < 10; i++)
     { 
-        for (j = 0; j < 10; j++ )
+        for (let j = 0; j < 10; j++ )
         {
 			let css = `<div class="case_eau"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button"></a></div>`
 
@@ -52,9 +50,8 @@ const m_grid_publique = function( adverse,id) {
                     }
                 }   
             }
-                grid += css;
-				css = `<div class="case_eau"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button"></a></div>`
-
+            
+            grid += css;
         }
     }
     return grid;
