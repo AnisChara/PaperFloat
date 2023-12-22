@@ -5,6 +5,8 @@ const nunjucks = require("nunjucks");
 const m_grid_nc = require("./m_grid_prv_nc.js");
 const m_grid_publique = require("./m_grid_publique.js")
 const tir = require("./m_ultime_tir.js");
+const gen_grille = require("./m_generer_grille.js");
+const { stringify } = require("querystring");
 
 const req_tir = function (req, res, query)
 {
@@ -13,10 +15,19 @@ const req_tir = function (req, res, query)
     let id = query.id;
     let adverse;
     let grille;
+    let result;
 
     let data = JSON.parse(fs.readFileSync("./data/"+id+".json"));	
         adverse = data.adverse;
-        console.log(adverse);
+
+    if (data.progress === "req_bateaux")
+    {
+        gen_grille(id);
+        data.progress = "req_tir";
+        data = JSON.stringify(data);
+        fs.writeFileSync("./data/"+id+".json", data, "UTF-8");
+        console.log("oui");
+    }
 
     page = fs.readFileSync("page_tir.html", "utf-8");
 
@@ -32,8 +43,12 @@ const req_tir = function (req, res, query)
         let co = query.bouton;
 		co = co.split("-");
 		co = {x:Number(co[1]),y:Number(co[0])};
-        let result = tir(grille, co, liste_bateaux,adverse);
-       
+        if (co.x <= 9 && co.x >= 0 && co.y <= 9 && co.y >= 0)
+        {
+            result = tir(grille, co, liste_bateaux,adverse);
+        }
+        else 
+        {}
     
     }
     let grid_nc = "";
@@ -41,6 +56,7 @@ const req_tir = function (req, res, query)
 
     let grid_publique = "";
     grid_publique = m_grid_publique(adverse, id);
+    
 
     marqueurs = {};
     marqueurs.erreur = "";

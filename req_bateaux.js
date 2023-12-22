@@ -68,7 +68,7 @@ const req_bateaux = function (req, res, query) {
 	if(query.reset || data.progress === false)
 	{
 		gen_bateaux(query.id);
-		if (data.progress === false) data.progress = "req_bateaux.js";
+		if (data.progress === false) data.progress = "req_bateaux";
 	}
 	if(query.rotate)
 	{

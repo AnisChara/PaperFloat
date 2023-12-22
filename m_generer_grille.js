@@ -24,6 +24,4 @@ const create_grid = function(player) // fonction pour créer la sauvegarde de la
 
 }
 
-//module.exports = 
-create_grid("Captain");
-create_grid("anis");
+module.exports = create_grid
