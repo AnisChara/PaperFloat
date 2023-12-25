@@ -37,7 +37,7 @@ body
     height: 100%;                   
     background-color: aqua;
     border-radius: 25px;
-    animation: load/*nom*/ 5s/*temps*/ linear/*direction*/ infinite/*fréquence*/;     /*j'utilise l'atribut animation pour par la suite le rappeler avec @keyframe et contrôler mon animation */
+    animation: load/*nom*/ 1s/*temps*/ linear/*direction*/ infinite/*fréquence*/;     /*j'utilise l'atribut animation pour par la suite le rappeler avec @keyframe et contrôler mon animation */
 }
 
 /*ici cette classe est pour écirre le loading bar en dessous la bar de chargement */

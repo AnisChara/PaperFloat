@@ -59,7 +59,7 @@ const req_bateaux = function (req, res, query) {
 		{
 			console.log(e.message);
 			console.log(e.stack);
-			data = {"id" : query.id,"adverse" : adverse, "rotate" : false, "bateau_edit" : 0, "progress" : false, "bateaux" : "./save_bateaux_"+query.id+".json", status : "placing"};
+			data = {"id" : query.id,"adverse" : adverse, "rotate" : false, "bateau_edit" : 0, "progress" : false, "bateaux" : "./save_bateaux_"+query.id+".json", "turn" : 0};
 		}
 	}
 	if(query.reset || data.progress === false)

@@ -4,7 +4,6 @@ const fs = require("fs");
 
 const verif_all_down = function(save_bateaux)
 {
-    save_bateaux = JSON.parse(fs.readFileSync(save_bateaux));
 
     let nb_bateau = 0;
     let index_case = 0;

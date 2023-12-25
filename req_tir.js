@@ -7,6 +7,8 @@ const m_grid_publique = require("./m_grid_publique.js")
 const tir = require("./m_ultime_tir.js");
 const gen_grille = require("./m_generer_grille.js");
 const { stringify } = require("querystring");
+const verif_all_down = require("./m_verif_all_down.js");
+const reset = require("./m_reset_data.js");
 
 const req_tir = function (req, res, query)
 {
@@ -18,13 +20,20 @@ const req_tir = function (req, res, query)
     let result;
 
     let data = JSON.parse(fs.readFileSync("./data/"+id+".json"));	
-        adverse = data.adverse;
-        data.status = "playing";
-        data = JSON.stringify(data);
-        fs.writeFileSync("./data/"+id+".json",data, "UTF-8");
+    adverse = data.adverse;
 
     let data_adverse = JSON.parse(fs.readFileSync("./data/"+adverse+".json"));
-    if (data_adverse.status === "placing")
+
+    if (data.progress === "req_bateaux")
+    {
+        gen_grille(id);
+        data.progress = "req_tir";
+        data = JSON.stringify(data);
+        fs.writeFileSync("./data/"+id+".json", data, "UTF-8");
+    }
+
+
+    if (data_adverse.progress === "req_bateaux") 
     {
         page = fs.readFileSync("./loading_tir.html", 'utf-8');
 		marqueurs.id = id;
@@ -36,22 +45,14 @@ const req_tir = function (req, res, query)
 		return;
     }
 
-    if (data.progress === "req_bateaux")
-    {
-        gen_grille(id);
-        data.progress = "req_tir";
-        data = JSON.stringify(data);
-        fs.writeFileSync("./data/"+id+".json", data, "UTF-8");
-        console.log("oui");
-    }
-
+ 
     page = fs.readFileSync("page_tir.html", "utf-8");
 
     if (query.bouton)
     {			
 
         grille = fs.readFileSync("./grille/save_grille_"+adverse+".json");
-        let liste_bateaux = fs. readFileSync("./bateaux/save_bateaux_"+adverse+".json");
+        let liste_bateaux = fs.readFileSync("./bateaux/save_bateaux_"+adverse+".json");
         
         grille = JSON.parse(grille);
         liste_bateaux = JSON.parse(liste_bateaux);
@@ -60,9 +61,55 @@ const req_tir = function (req, res, query)
 		co = co.split("-");
 		co = {x:Number(co[1]),y:Number(co[0])};
         result = tir(grille, co, liste_bateaux,adverse);
-   
-    
+
+        if (result !== false)
+        {
+            data.turn++;
+            fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
+        }
+
     }
+
+    if (data.turn > data_adverse.turn)
+    {
+        page = fs.readFileSync("./loading_tir.html", 'utf-8');
+		marqueurs.id = id;
+        marqueurs.adverse = adverse;
+		page = nunjucks.renderString(page, marqueurs);
+		res.writeHead(200, { 'Content-Type': 'text/html' });
+		res.write(page);
+		res.end();
+		return;
+    }
+    let win = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+adverse+".json")));
+    let lose = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+id+".json")));
+
+    if (win === true && lose === true)
+    {
+        //reset(id);
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+	    res.write("tie");
+	    res.end();
+        return;
+    }
+    else if (win === true)
+    {
+        //reset(id);
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+	    res.write("win");
+	    res.end();
+        return;
+    }
+    else if (lose === true)
+    {
+        //reset(id);
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+	    res.write("lose");
+	    res.end();
+        return;
+    }
+   
+
     let grid_nc = "";
     grid_nc = m_grid_nc(query.id);
 

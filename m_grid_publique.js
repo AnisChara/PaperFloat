@@ -21,7 +21,7 @@ const m_grid_publique = function( adverse,id) {
             }
             else 
             {
-               css = `<div class="case_eau_touch"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button"></a></div>`
+               css = `<div class="case_eau_touch"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button" disabled="disabled"></a></div>`
 
                 for (let u= 0; u < bateaux.length; u++)
                 {
@@ -38,11 +38,11 @@ const m_grid_publique = function( adverse,id) {
                             }
                             if(full_boat === bateaux[u].length) 
 						    {
-						    	css = `<div class="case_bateau_touch_c"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button"></a></div>`
+						    	css = `<div class="case_bateau_touch_c"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button" disabled="disabled"></a></div>`
 						    }
                             else
 						    {
-							    css = `<div class="case_bateau_touch"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button"></a></div>`
+							    css = `<div class="case_bateau_touch"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}&adverse=${adverse}"><input type="button" disabled="disabled"></a></div>`
 						    }
                     
 						    full_boat = 0;
