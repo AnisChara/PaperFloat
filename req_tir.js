@@ -21,8 +21,49 @@ const req_tir = function (req, res, query)
 
     let data = JSON.parse(fs.readFileSync("./data/"+id+".json"));	
     adverse = data.adverse;
-
     let data_adverse = JSON.parse(fs.readFileSync("./data/"+adverse+".json"));
+    if (data.turn > data_adverse.turn)
+    {
+        page = fs.readFileSync("./loading_tir.html", 'utf-8');
+		marqueurs.id = id;
+        marqueurs.adverse = adverse;
+		page = nunjucks.renderString(page, marqueurs);
+		res.writeHead(200, { 'Content-Type': 'text/html' });
+		res.write(page);
+		res.end();
+		return;
+    }
+    if (data.turn === data_adverse.turn)
+    {
+        
+        let win = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+adverse+".json")));
+        let lose = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+id+".json")));
+
+        if (win === true && lose === true)
+        {
+            
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write("tie");
+            res.end();
+            return;
+        }
+        else if (win === true)
+        {
+            
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write("win");
+            res.end();
+            return;
+        }
+        else if (lose === true)
+        {
+            
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write("lose");
+            res.end();
+            return;
+        }
+    }
 
     if (data.progress === "req_bateaux")
     {
@@ -70,6 +111,39 @@ const req_tir = function (req, res, query)
 
     }
 
+    if (data.turn === data_adverse.turn)
+    {
+        
+        let win = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+adverse+".json")));
+        let lose = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+id+".json")));
+
+        if (win === true && lose === true)
+        {
+            
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write("tie");
+            res.end();
+            return;
+        }
+        else if (win === true)
+        {
+            
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write("win");
+            res.end();
+            return;
+        }
+        else if (lose === true)
+        {
+            
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.write("lose");
+            res.end();
+            return;
+        }
+    }
+
+
     if (data.turn > data_adverse.turn)
     {
         page = fs.readFileSync("./loading_tir.html", 'utf-8');
@@ -81,33 +155,7 @@ const req_tir = function (req, res, query)
 		res.end();
 		return;
     }
-    let win = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+adverse+".json")));
-    let lose = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+id+".json")));
-
-    if (win === true && lose === true)
-    {
-        //reset(id);
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-	    res.write("tie");
-	    res.end();
-        return;
-    }
-    else if (win === true)
-    {
-        //reset(id);
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-	    res.write("win");
-	    res.end();
-        return;
-    }
-    else if (lose === true)
-    {
-        //reset(id);
-        res.writeHead(200, { 'Content-Type': 'text/html' });
-	    res.write("lose");
-	    res.end();
-        return;
-    }
+    
    
 
     let grid_nc = "";
