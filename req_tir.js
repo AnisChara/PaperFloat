@@ -35,13 +35,14 @@ const req_tir = function (req, res, query)
     }
     if (data.turn === data_adverse.turn)
     {
-        
         let win = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+adverse+".json")));
         let lose = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+id+".json")));
 
         if (win === true && lose === true)
-        {
-            
+        {   
+            data.progress = false;
+            fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
+            if (data_adverse.progress === false) {reset(id); reset(adverse);}
             res.writeHead(200, { 'Content-Type': 'text/html' });
             res.write("tie");
             res.end();
@@ -49,17 +50,29 @@ const req_tir = function (req, res, query)
         }
         else if (win === true)
         {
-            
+            data.progress = false;
+            fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
+            if (data_adverse.progress === false) {reset(id); reset(adverse);}
+            page = fs.readFileSync("./page_victoire.html", 'utf-8');
+            marqueurs.id = id;
+            marqueurs.adverse = adverse;
+            page = nunjucks.renderString(page, marqueurs);
             res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.write("win");
+            res.write(page);
             res.end();
-            return;
+		    return;
         }
         else if (lose === true)
         {
-            
+            data.progress = false;
+            fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
+            if (data_adverse.progress === false) {reset(id); reset(adverse);}
+            page = fs.readFileSync("./page_defaite.html", 'utf-8');
+            marqueurs.id = id;
+            marqueurs.adverse = adverse;
+            page = nunjucks.renderString(page, marqueurs);
             res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.write("lose");
+            res.write(page);
             res.end();
             return;
         }
@@ -85,9 +98,6 @@ const req_tir = function (req, res, query)
 		res.end();
 		return;
     }
-
- 
-    page = fs.readFileSync("page_tir.html", "utf-8");
 
     if (query.bouton)
     {			
@@ -119,7 +129,9 @@ const req_tir = function (req, res, query)
 
         if (win === true && lose === true)
         {
-            
+            data.progress = false;
+            fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
+            if (data_adverse.progress === false) {reset(id); reset(adverse);}
             res.writeHead(200, { 'Content-Type': 'text/html' });
             res.write("tie");
             res.end();
@@ -127,17 +139,29 @@ const req_tir = function (req, res, query)
         }
         else if (win === true)
         {
-            
+            data.progress = false;
+            fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
+            if (data_adverse.progress === false) {reset(id); reset(adverse);}
+            page = fs.readFileSync("./page_victoire.html", 'utf-8');
+            marqueurs.id = id;
+            marqueurs.adverse = adverse;
+            page = nunjucks.renderString(page, marqueurs);
             res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.write("win");
+            res.write(page);
             res.end();
-            return;
+		    return;
         }
         else if (lose === true)
         {
-            
+            data.progress = false;
+            fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
+            if (data_adverse.progress === false) {reset(id); reset(adverse);}
+            page = fs.readFileSync("./page_defaite.html", 'utf-8');
+            marqueurs.id = id;
+            marqueurs.adverse = adverse;
+            page = nunjucks.renderString(page, marqueurs);
             res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.write("lose");
+            res.write(page);
             res.end();
             return;
         }
@@ -164,6 +188,7 @@ const req_tir = function (req, res, query)
     let grid_publique = "";
     grid_publique = m_grid_publique(adverse, id);
     
+    page = fs.readFileSync("page_tir.html", "utf-8");
 
     marqueurs = {};
     marqueurs.erreur = "";
