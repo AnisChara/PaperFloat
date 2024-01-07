@@ -33,6 +33,9 @@ const req_tir = function (req, res, query)
 		res.end();
 		return;
     }
+
+    //verification win or lose 
+
     if (data.turn === data_adverse.turn)
     {
         let win = verif_all_down(JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+adverse+".json")));
@@ -99,6 +102,8 @@ const req_tir = function (req, res, query)
 		return;
     }
 
+    //si joue en appuyant sur un bouton
+    
     if (query.bouton)
     {			
 
@@ -120,6 +125,8 @@ const req_tir = function (req, res, query)
         }
 
     }
+
+    // verification win or lose
 
     if (data.turn === data_adverse.turn)
     {
