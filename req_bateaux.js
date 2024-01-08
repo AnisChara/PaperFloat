@@ -25,7 +25,6 @@ const req_bateaux = function (req, res, query) {
 
 	page = fs.readFileSync('./page_placement.html', 'utf-8');
 
-	let bateau;
 	let rotate;
 
 	adverse = party_placer(query.id);
