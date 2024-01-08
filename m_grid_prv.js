@@ -15,25 +15,31 @@ const m_grid_prv = function(id) {
 	{
 		for ( let j = 0; j < 10; j++ ) 
 		{
+			let css = `<div class="case_eau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button" ></a></div>`
+
 			for (let u= 0; u < bateaux.length; u++)
 			{
 				for (let v = 0; v < bateaux[u].length; v++)
 				{
 					if (bateaux[u][v].x === j && bateaux[u][v].y === i)
 					{
-						is_a_boat = true;
+						if (u === 3)
+						{
+							if (v === 0)
+							{
+								css = `<div class="case_bateau_5_1"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+							}
+							else if (v === 1)
+							{
+								css = `<div class="case_bateau_5_2"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+							}
+						}
+						else css = `<div class="case_bateau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+						
 					}
 				}
 			}
-			if (is_a_boat === true)
-			{
-				grid+= `<div class="case_bateau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
-			}
-			else
-			{
-				grid+= `<div class="case_eau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
-			}
-			is_a_boat = false;
+			grid += css;
 		}
     }
 	return grid;

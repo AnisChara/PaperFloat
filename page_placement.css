@@ -73,7 +73,23 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background-color : red;
+}
+.case_bateau_5_1
+{
+    border: 1px solid white;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    background: url(5_1.PNG);
+}
+.case_bateau_5_2
+{
+    border: 1px solid white;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    background: url(5_2.PNG);
 }
 .btn3
 {
