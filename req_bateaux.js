@@ -78,11 +78,10 @@ const req_bateaux = function (req, res, query) {
 	if(query.bouton)
 	{
 		let bateaux = JSON.parse(fs.readFileSync("./bateaux/save_bateaux_"+query.id+".json"));
-		rotate = data.rotate;
 		let co = query.bouton;
 		co = co.split("-");
 		co = {x:Number(co[1]),y:Number(co[0])};
-		bateaux = placement(query.id,co,rotate,data.bateau_edit);
+		bateaux = placement(query.id,co,data.rotate,data.bateau_edit);
 		bateaux = JSON.stringify(bateaux);
 		
 		if(bateaux !== "false")
@@ -103,6 +102,7 @@ const req_bateaux = function (req, res, query) {
 	data = JSON.stringify(data);
 	fs.writeFileSync("./data/"+query.id+".json", data, "UTF-8");
     let grid = "";
+	data = JSON.parse(fs.readFileSync("./data/"+query.id+".json"));
 	grid = req_grid(query.id)
 
 
