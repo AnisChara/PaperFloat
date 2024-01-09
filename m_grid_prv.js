@@ -23,7 +23,7 @@ const m_grid_prv = function(id) {
 				{
 					if (bateaux[u][v].x === j && bateaux[u][v].y === i)
 					{
-						if (u === 3)
+						/*if (u === 3)
 						{
 							if (v === 0)
 							{
@@ -33,8 +33,8 @@ const m_grid_prv = function(id) {
 							{
 								css = `<div class="case_bateau_5_2"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
 							}
-						}
-						else css = `<div class="case_bateau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+						}*/
+						css = `<div class="case_bateau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
 						
 					}
 				}
