@@ -10,6 +10,7 @@ const placement = require("./m_ultime_placement.js");
 const gen_bateaux = require("./m_liste_bateaux.js");
 const verif_all_place = require("./m_verif_all_place.js");
 const party_placer = require("./m_party_placer.js");
+const random = require("./m_random.js");
 
 const req_bateaux = function (req, res, query) {
 
@@ -89,7 +90,12 @@ const req_bateaux = function (req, res, query) {
 			fs.writeFileSync("./bateaux/save_bateaux_"+query.id+".json",bateaux,"UTF-8");
 		}
 	}
-
+	
+	if(query.random)
+	{
+		random(query.id);
+	}
+	
 	confirm = verif_all_place("./bateaux/save_bateaux_"+query.id+".json");
 
 	if(confirm !== false) 
