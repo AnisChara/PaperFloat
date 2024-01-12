@@ -1,1 +1,1 @@
-{"id":"papier","adverse":"","rotate":false,"bateau_edit":0,"progress":false,"bateaux":"./save_bateaux_papier.json","turn":0}
+{"id":"papier","adverse":"","rotate":false,"bateau_edit":0,"progress":false,"bateaux":"./save_bateaux_papier.json","turn":0,"sonar":true,"shot":false}

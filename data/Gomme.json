@@ -1,1 +1,1 @@
-{"id":"Gomme","adverse":"","rotate":false,"bateau_edit":0,"progress":false,"bateaux":"./save_bateaux_Gomme.json","turn":0}
+{"id":"Gomme","adverse":"","rotate":false,"bateau_edit":0,"progress":false,"bateaux":"./save_bateaux_Gomme.json","turn":0,"sonar":true,"shot":false}
