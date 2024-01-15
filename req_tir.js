@@ -124,10 +124,11 @@ const req_tir = function (req, res, query)
 
         if (result !== false)
         {
-            if(result === "miss" && verif_down(id,0) !== true)
+            if(result === "miss" && data.sonar === true)
             {
-                sonar = "miss";
-                console.log("IUSEGFIUVQBVMIRIVBEVIBQIIR");
+                if (verif_down(id, 0) === true) data.sonar = false;
+                else sonar = "miss";
+
             }
             data.turn++;
             fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
