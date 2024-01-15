@@ -20,7 +20,20 @@ const ultime_tir = function(grille,co,bateau,adverse)
         {
             fs.writeFileSync("./bateaux/save_bateaux_"+adverse+".json",JSON.stringify(result[1]),"utf-8")
         }
-
+        else
+        {
+            for(let i = 0; i < bateau.length; i++)
+            {
+                for(let j = 0; j < bateau[i].length; j++)
+                {
+                    if (((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y)**2)**0.5 < 1.5 && bateau[i][j].state === false)
+                    {
+                        return "miss";
+                    }
+                }
+            }
+        }
+        
         return true;
 
     }

@@ -9,6 +9,7 @@ const gen_grille = require("./m_generer_grille.js");
 const { stringify } = require("querystring");
 const verif_all_down = require("./m_verif_all_down.js");
 const reset = require("./m_reset_data.js");
+const verif_down = require("./m_verif_down.js");
 
 const req_tir = function (req, res, query)
 {
@@ -18,6 +19,7 @@ const req_tir = function (req, res, query)
     let adverse;
     let grille;
     let result;
+    let sonar = query.sonar;
 
     let data = JSON.parse(fs.readFileSync("./data/"+id+".json"));	
     adverse = data.adverse;
@@ -27,6 +29,7 @@ const req_tir = function (req, res, query)
         page = fs.readFileSync("./loading_tir.html", 'utf-8');
 		marqueurs.id = id;
         marqueurs.adverse = adverse;
+        marqueurs.sonar = query.sonar;
 		page = nunjucks.renderString(page, marqueurs);
 		res.writeHead(200, { 'Content-Type': 'text/html' });
 		res.write(page);
@@ -95,6 +98,7 @@ const req_tir = function (req, res, query)
         page = fs.readFileSync("./loading_tir.html", 'utf-8');
 		marqueurs.id = id;
         marqueurs.adverse = adverse;
+        marqueurs.sonar = query.sonar;
 		page = nunjucks.renderString(page, marqueurs);
 		res.writeHead(200, { 'Content-Type': 'text/html' });
 		res.write(page);
@@ -120,6 +124,11 @@ const req_tir = function (req, res, query)
 
         if (result !== false)
         {
+            if(result === "miss" && verif_down(id,0) !== true)
+            {
+                sonar = "miss";
+                console.log("IUSEGFIUVQBVMIRIVBEVIBQIIR");
+            }
             data.turn++;
             fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
         }
@@ -180,6 +189,7 @@ const req_tir = function (req, res, query)
         page = fs.readFileSync("./loading_tir.html", 'utf-8');
 		marqueurs.id = id;
         marqueurs.adverse = adverse;
+        marqueurs.sonar = sonar;
 		page = nunjucks.renderString(page, marqueurs);
 		res.writeHead(200, { 'Content-Type': 'text/html' });
 		res.write(page);
@@ -203,6 +213,7 @@ const req_tir = function (req, res, query)
     marqueurs.grid_publique = grid_publique;
     marqueurs.id = query.id;
     marqueurs.adverse = adverse;
+    marqueurs.sonar = sonar;
 	page = nunjucks.renderString(page, marqueurs);
 
 	res.writeHead(200, { 'Content-Type': 'text/html' });
