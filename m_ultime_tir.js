@@ -8,11 +8,11 @@ const m_tir = require("./m_tir.js");
 const m_verif_tir_case = require("./m_verif_tir_case.js");
 
 
-const ultime_tir = function(grille,co,bateau,adverse)
+const ultime_tir = function(grille,co,bateau,adverse,shot)
 {
     if(m_verif_tir_case(co,grille) === true)
     {
-        const result = m_tir(grille,bateau,co)
+        const result = m_tir(grille,bateau,co,shot)
 
         fs.writeFileSync("./grille/save_grille_"+adverse+".json",JSON.stringify(result[0]),"utf-8");
         
@@ -26,7 +26,7 @@ const ultime_tir = function(grille,co,bateau,adverse)
             {
                 for(let j = 0; j < bateau[i].length; j++)
                 {
-                    if (((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y)**2)**0.5 < 1.5 && bateau[i][j].state === false)
+                    if (((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y)**2)**0.5 < 1.5 && bateau[i][j].state === false || ((bateau[i][j].x - co.x+1)**2 + (bateau[i][j].y - co.y)**2)**0.5 < 1.5 && bateau[i][j].state === false || ((bateau[i][j].x - co.x-1)**2 + (bateau[i][j].y - co.y)**2)**0.5 < 1.5 && bateau[i][j].state === false|| ((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y+1)**2)**0.5 < 1.5 && bateau[i][j].state === false || ((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y-1)**2)**0.5 < 1.5 && bateau[i][j].state === false)
                     {
                         return "miss";
                     }

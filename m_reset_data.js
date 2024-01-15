@@ -6,7 +6,7 @@ const gen_grille = require("./m_generer_grille");
 
 const reset = function(id)
 {
-    let data = {"id" : id,"adverse" : "", "rotate" : false, "bateau_edit" : 0, "progress" : false, "bateaux" : "./save_bateaux_"+id+".json", "turn" : 0};
+    let data = {"id" : id,"adverse" : "", "rotate" : false, "bateau_edit" : 0, "progress" : false, "bateaux" : "./save_bateaux_"+id+".json", "turn" : 0, "sonar" : true, "shot" : false };
     data = JSON.stringify(data);
     fs.writeFileSync("./data/"+id+".json", data, "UTF-8");
     gen_bateaux(id);

@@ -20,6 +20,7 @@ const req_tir = function (req, res, query)
     let grille;
     let result;
     let sonar = query.sonar;
+    let shot;
 
     let data = JSON.parse(fs.readFileSync("./data/"+id+".json"));	
     adverse = data.adverse;
@@ -109,7 +110,8 @@ const req_tir = function (req, res, query)
     //si joue en appuyant sur un bouton
     
     if (query.bouton)
-    {			
+    {	
+        data = JSON.parse(fs.readFileSync("./data/"+id+".json"));
 
         grille = fs.readFileSync("./grille/save_grille_"+adverse+".json");
         let liste_bateaux = fs.readFileSync("./bateaux/save_bateaux_"+adverse+".json");
@@ -120,7 +122,7 @@ const req_tir = function (req, res, query)
         let co = query.bouton;
 		co = co.split("-");
 		co = {x:Number(co[1]),y:Number(co[0])};
-        result = tir(grille, co, liste_bateaux,adverse);
+        result = tir(grille, co, liste_bateaux,adverse,data.shot);
 
         if (result !== false)
         {
@@ -130,8 +132,20 @@ const req_tir = function (req, res, query)
                 else sonar = "miss";
 
             }
+            
+            if (data.shot === true) data.shot = "done";
             data.turn++;
             fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
+            
+            if (data.shot === false)
+            {
+                if(verif_down(id, 4) === true)
+                {
+                    data.shot = true;
+                    shot = "Vous disposez du mega tir";
+                    fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
+                }
+            }		
         }
 
     }
@@ -215,6 +229,7 @@ const req_tir = function (req, res, query)
     marqueurs.id = query.id;
     marqueurs.adverse = adverse;
     marqueurs.sonar = sonar;
+    marqueurs.shot = shot;
 	page = nunjucks.renderString(page, marqueurs);
 
 	res.writeHead(200, { 'Content-Type': 'text/html' });
