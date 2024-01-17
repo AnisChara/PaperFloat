@@ -7,18 +7,36 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <div class="reset">
-            <div class="btn4"><a href="/req_bateaux?reset=1&id={{ id }}"><input type="button" value="réinitialisation"></a></div>
-        </div>
-        <div class="random">
-            <div class="btn4"><a href="/req_bateaux?random=1&id={{ id }} "><input type="button" value="random" id="random"></a></div>
-        </div>
-        <div class="tout">
-            <div class="container">
-                {{ grid | safe }}
-                <!--<div class="btn"><a href="/req_bateaux?bouton="><input type="button"></div>-->
+        <div class="tout_2">
+            <div class="reset">
+                <div class="btn4"><a href="/req_bateaux?reset=1&id={{ id }}"><input type="button" value="réinitialisation"></a></div>
             </div>
-            <div class="bateau">
+            <div class="rotate">
+                <div class="btn3"><a href="/req_bateaux?rotate=1&id={{ id }}"><input type="button" value="rotation"></a></div>
+             </div>
+             <div class="random">
+                <div class="btn4"><a href="/req_bateaux?random=1&id={{ id }} "><input type="button" value="random" id="random"></a></div>
+            </div>
+                {{ button_confirm | safe }}
+        </div>
+        <div class="output">
+            <section id="exemple">
+                <div class="d3" style="transform: rotate3d(0, 2, 0.4, 3.142rad);">
+                    <div class="face front"></div>
+                    <div class="face back"></div>
+                        <div class="container">
+                            {{ grid | safe }}
+                            <!--<div class="btn"><a href="/req_bateaux?bouton="><input type="button"></div>-->
+                        </div>
+                    <div class="face rigth"></div>
+                    <div class="face left"></div>
+                    <div class="face top"></div>
+                    <div class="face bottom"></div>
+                </div>
+            </section>
+        </div>
+        <div class="tout_3">
+         <div class="bateau">
                 <div class="btn1"><a href="/req_bateaux?bateau=0&id={{ id }}"><input type="button"></a></div>
                 <div class="btn1"><a href="/req_bateaux?bateau=1&id={{ id }}"><input type="button"></a></div>
                 <div class="btn1"><a href="/req_bateaux?bateau=2&id={{ id }}"><input type="button"></a></div>
@@ -26,10 +44,5 @@
                 <div class="btn1"><a href="/req_bateaux?bateau=4&id={{ id }}"><input type="button"></a></div>
             </div>
         </div>
-        <div class="rotate">
-            <div class="btn3"><a href="/req_bateaux?rotate=1&id={{ id }}"><input type="button" value="rotation"></a></div>
-        </div>
-
-        {{ button_confirm | safe }}
     </body>
 </html>
