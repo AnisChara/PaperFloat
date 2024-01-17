@@ -2,9 +2,11 @@ body
 {
     background: url(toivague.webp) no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 40vh;
     background-position: left;
     animation: move 20s ease-in-out infinite;
+    overflow: hidden;
+
 }
 .placement
 {
@@ -16,7 +18,7 @@ h1
 {
     text-align: center;
     font-size: 100px;
-    margin-top: 20%;
+    margin-top: 10%;
 }
 button
 {

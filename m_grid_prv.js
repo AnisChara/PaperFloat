@@ -23,18 +23,24 @@ const m_grid_prv = function(id) {
 				{
 					if (bateaux[u][v].x === j && bateaux[u][v].y === i)
 					{
-						/*if (u === 3)
+						css = `<div class="case_bateau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+						
+						if (u === 1 || u === 2)
 						{
 							if (v === 0)
 							{
-								css = `<div class="case_bateau_5_1"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								css = `<div class="case2_bateau3"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+
 							}
-							else if (v === 1)
+							if (v === 1)
 							{
-								css = `<div class="case_bateau_5_2"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								css = `<div class="case1_bateau3"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
 							}
-						}*/
-						css = `<div class="case_bateau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+							if (v === 2)
+							{
+								css = `<div class="case3_bateau3"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+							}
+						}
 						
 					}
 				}
