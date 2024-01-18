@@ -134,7 +134,7 @@ body
 }
 .case_eau
 {
-    border: 1px solid white;
+    border: 0.5px solid white;
     width: 100%;
     height: 100%;
     cursor: crosshair;
@@ -148,7 +148,17 @@ body
 } 
 .case_bateau
 {
-    border: 1px solid white;
+    border: 0.5px solid white;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    background: url(aziz1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.case_bateau1
+{
+    border: 0.5px solid white;
     width: 100%;
     height: 100%;
     cursor: crosshair;
@@ -158,7 +168,7 @@ body
 }
 .case1_bateau3
 {
-    border: 1px solid white;
+    border: 0.5px solid white;
     width: 100%;
     height: 100%;
     cursor: crosshair;
@@ -167,9 +177,20 @@ body
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+.case1_bateau3H
+{
+    border: 0.5px solid white;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    background: url(Haziz3.png);
+    background-size: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 .case2_bateau3
 {
-    border: 1px solid white;
+    border: 0.5px solid white;
     width: 100%;
     height: 100%;
     cursor: crosshair;
@@ -178,13 +199,35 @@ body
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+.case2_bateau3H
+{
+    border: 0.5px solid white;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    background: url(Haziz2.png);
+    background-size: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
 .case3_bateau3
 {
-    border: 1px solid white;
+    border: 0.5px solid white;
     width: 100%;
     height: 100%;
     cursor: crosshair;
     background: url(aziz3.png);
+    background-size: 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.case3_bateau3H
+{
+    border: 0.5px solid white;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    background: url(Haziz1.png);
     background-size: 100%;
     background-size: 100% 100%;
     background-repeat: no-repeat;

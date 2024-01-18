@@ -27,20 +27,98 @@ const m_grid_prv = function(id) {
 						
 						if (u === 1 || u === 2)
 						{
-							if (v === 0)
+							if (bateaux[u][0].x === bateaux[u][1].x)
 							{
-								css = `<div class="case2_bateau3"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								if (v === 0)
+								{
+									css = `<div class="case2_bateau3"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
 
+								}
+								if (v === 1)
+								{
+									css = `<div class="case1_bateau3"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+								if (v === 2)
+								{
+									css = `<div class="case3_bateau3"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
 							}
-							if (v === 1)
+							else if (bateaux[u][0].y === bateaux[u][1].y)
 							{
-								css = `<div class="case1_bateau3"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								if (v === 0)
+								{
+									css = `<div class="case2_bateau3H"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+
+								}
+								if (v === 1)
+								{
+									css = `<div class="case1_bateau3H"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+								if (v === 2)
+								{
+									css = `<div class="case3_bateau3H"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
 							}
-							if (v === 2)
-							{
-								css = `<div class="case3_bateau3"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
-							}
+
 						}
+						else if (u === 0)
+						{
+							css = `<div class="case_bateau1"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+						}
+						/*else if (u === 3)
+						{
+							if (bateaux[u][0].x === bateaux[u][1].x)
+							{
+								if (v === 0)
+								{
+									css = `<div class="case3_bateau5"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+								if (v === 1)
+								{
+									css = `<div class="case2_bateau5"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+								if (v === 2)
+								{
+									css = `<div class="case4_bateau5"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+								if (v === 3)
+								{
+									css = `<div class="case1_bateau5"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+								if (v === 4)
+								{
+									css = `<div class="case5_bateau5"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+							}
+							else if (bateaux[u][0].y === bateaux[u][1].y)
+							{
+								if (v === 0)
+								{
+									css = `<div class="case3_bateau5H"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+								if (v === 1)
+								{
+									css = `<div class="case2_bateau5H"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+								if (v === 2)
+								{
+									css = `<div class="case4_bateau5H"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+								if (v === 3)
+								{
+									css = `<div class="case1_bateau5H"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+								if (v === 4)
+								{
+									css = `<div class="case5_bateau5H"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
+								}
+							}
+
+						}
+						else if (u === 4)
+						{
+
+						}*/
 						
 					}
 				}
