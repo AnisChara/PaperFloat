@@ -240,8 +240,6 @@ const m_grid_nc = function(id) {
                                     //TODO: bateau de 9 vertical et horizontal touché
                                 }
 
-                                css = `<div class="case_bateau_touch"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
-
 							}
 						
 						    full_boat = 0;

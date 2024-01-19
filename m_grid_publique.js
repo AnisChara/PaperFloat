@@ -42,6 +42,8 @@ const m_grid_publique = function( adverse,id) {
 						    }
                             else
 						    {
+                                css = `<div class="case_bateau_touch"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
+
                                 if (u === 1 || u === 2)                           
                                 {
                                     if (bateaux[u][0].x === bateaux[u][1].x)
@@ -133,7 +135,6 @@ const m_grid_publique = function( adverse,id) {
                                     //TODO: bateau de 9 vertical et horizontal touché
                                 }
 
-                                css = `<div class="case_bateau_touch"><a type="submit" href="/req_tir?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
 						    }
                     
 						    full_boat = 0;

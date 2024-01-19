@@ -170,8 +170,8 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background: url(aziz1.png);
-    background-size: 100%;
+    background: url(bateau1.PNG);
+    background-size: 105% 100%;
     background-repeat: no-repeat;
 }
 .case1_bateau3
@@ -181,7 +181,6 @@ body
     height: 100%;
     cursor: crosshair;
     background: url(aziz1.png);
-    background-size: 100%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -192,7 +191,6 @@ body
     height: 100%;
     cursor: crosshair;
     background: url(Haziz3.png);
-    background-size: 100%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -203,7 +201,6 @@ body
     height: 100%;
     cursor: crosshair;
     background: url(aziz2.png);
-    background-size: 100%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -214,7 +211,6 @@ body
     height: 100%;
     cursor: crosshair;
     background: url(Haziz2.png);
-    background-size: 100%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -225,28 +221,16 @@ body
     height: 100%;
     cursor: crosshair;
     background: url(aziz3.png);
-    background-size: 100%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
-.case2_bateau3
+.case3_bateau3H
 {
     border: 1px solid white;
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background: url(aziz2.png);
-    background-size: 100%;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-}
-.case3_bateau3
-{
-    border: 1px solid white;
-    width: 100%;
-    height: 100%;
-    cursor: crosshair;
-    background: url(aziz3.png);
+    background: url(Haziz1.png);
     background-size: 100%;
     background-size: 100% 100%;
     background-repeat: no-repeat;
