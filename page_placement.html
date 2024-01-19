@@ -7,18 +7,21 @@
         <meta charset="utf-8">
     </head>
     <body>
+        <div class="tout_tout">
         <div class="tout_2">
             <div class="reset">
                 <div class="btn4"><a href="/req_bateaux?reset=1&id={{ id }}"><input type="button" value="réinitialisation"></a></div>
             </div>
             <div class="rotate">
-                <div class="btn3"><a href="/req_bateaux?rotate=1&id={{ id }}"><input type="button" value="rotation"></a></div>
+                <div class="btn4"><a href="/req_bateaux?rotate=1&id={{ id }}"><input type="button" value="rotation"></a></div>
              </div>
              <div class="random">
                 <div class="btn4"><a href="/req_bateaux?random=1&id={{ id }} "><input type="button" value="random" id="random"></a></div>
             </div>
                 {{ button_confirm | safe }}
+                <!--<div class="confirm"><div class="btn4"><a href="req_tir?id=${query.id}&adverse=${data.adverse}"><input type="button" value="confirmer"></a></div>\n</div>-->
         </div>
+    </div>
         <div class="output">
             <section id="exemple">
                 <div class="d3" style="transform: rotate3d(0, 2, 0.4, 3.142rad);">

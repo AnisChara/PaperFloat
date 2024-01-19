@@ -101,7 +101,7 @@ const req_bateaux = function (req, res, query) {
 	if(confirm !== false) 
 	{
 		button_confirm = `<div class="valide">\n
-		<div class="confirm"><a href="req_tir?id=${query.id}&adverse=${data.adverse}"><input type="button" value="confirmer"></a></div>\n
+		<div class="btn4"><a href="req_tir?id=${query.id}&adverse=${data.adverse}"><input type="button" value="confirmer"></a></div>\n
 	</div>`;
 	}
 
