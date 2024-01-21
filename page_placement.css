@@ -180,7 +180,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background: url(aziz1.png);
+    background: url(dessin1.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -200,7 +200,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background: url(aziz2.png);
+    background: url(dessin2.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -220,7 +220,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background: url(aziz3.png);
+    background: url(dessin3.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
