@@ -8,15 +8,38 @@
     </head>
     <body>
         <div class="tout">
-            <div class="perso">     <!--grille joueur-->
-                {{grid_nc | safe}} 
+            <div class="output">
+                <section id="exemple">
+                    <div class="d3" style="transform: rotate3d(0, 2, 0.4, 3.142rad);">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                            <div class="perso">     <!--grille joueur-->
+                                {{grid_nc | safe}} 
+                            </div>
+                        <div class="face rigth"></div>
+                        <div class="face left"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                    </div>
+                </section>
             </div>
         </div>
-        <div class="av_adverse"></div>  <!--grille joueur adverse-->
-            <div class="adverse">
-                {{grid_publique | safe }}
+        <div class="av_adverse"> <!--grille joueur adverse-->
+            <div class="output">
+                <section id="exemple">
+                    <div class="d3" style="transform: rotate3d(0, 2, 0.4, 3.142rad);">
+                        <div class="face front"></div>
+                        <div class="face back"></div>
+                            <div class="adverse">
+                                {{grid_publique | safe }}
+                            </div>
+                        <div class="face rigth"></div>
+                        <div class="face left"></div>
+                        <div class="face top"></div>
+                        <div class="face bottom"></div>
+                    </div>
+                </section>
             </div>
-
         </div>
         {{ sonar | safe}}
         {{ shot | safe}}
