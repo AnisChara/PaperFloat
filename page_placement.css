@@ -107,39 +107,40 @@ body
 }
 .rotate
 { 
-    width: 100px;
+    width: 44px;
     height: 30px;
     margin: 5% 5% 5% 5%;
 }
 
 .reset
 {
-    width: 100px;
+    width: 44px;
     height: 30px;
     margin: 5%;
 }
 .random 
 {
-    width: 100px;
+    width: 44px;
     height: 30px;
     margin: 5% 5% 5% 5%;
 }
 
 .valide
 {
-    width: 100px;
+    width: 44px;
     height: 30px;
     margin: 5% 5% 5% 5%;
 }
 
 .tout_tout
 {
-    width: 350px;
-    height: 400px;
+    width: 300px;
+    height: 600px;
     position: relative;
     margin: 20% 25% 5% 5%;
-    background: url(papier_ancien.jpg);
-    background: cover;
+    background: url(papier_ancien.png);
+    background:cover;
+    background-repeat: no-repeat;
 }
 .case_eau
 {
@@ -265,7 +266,7 @@ input
   
   .btn4{
     display: block;
-    width: 200px;
+    width: 150px;
     height: 45px;
     line-height: 40px;
     font-size: 18px;
