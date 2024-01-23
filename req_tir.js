@@ -211,6 +211,11 @@ const req_tir = function (req, res, query)
 		res.end();
 		return;
     }
+
+    if(sonar === "miss")
+    {
+        sonar =`<div class ="miss"><p> Raté de peu ! <p></div>`;
+    }
     
    
 
