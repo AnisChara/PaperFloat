@@ -132,7 +132,15 @@ const m_grid_publique = function( adverse,id) {
                                 }
                                 else if (u === 4)
                                 {
-                                    //TODO: bateau de 9 vertical et horizontal touché
+                                    if(v === 0) css = `<div class="case0_bateau9T"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
+                                    else if (v === 1) css = `<div class="caseTop_bateau9T"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
+                                    else if (v === 2) css = `<div class="caseBottom_bateau9T"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
+                                    else if (v === 3) css = `<div class="caseLeft_bateau9T"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
+                                    else if (v === 4) css = `<div class="caseRight_bateau9T"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
+                                    else if (v === 5) css = `<div class="caseBottomRight_bateau9T"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
+                                    else if (v === 6) css = `<div class="caseBottomLeft_bateau9T"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
+                                    else if (v === 7) css = `<div class="caseTopRight_bateau9T"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`
+                                    else if (v === 8) css = `<div class="caseTopLeft_bateau9T"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button" disabled="disabled"></a></div>`                                              
                                 }
 
 						    }
