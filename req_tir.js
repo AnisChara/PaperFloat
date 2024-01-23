@@ -20,7 +20,7 @@ const req_tir = function (req, res, query)
     let grille;
     let result;
     let sonar = query.sonar;
-    let shot;
+    let bonus;
 
     let data = JSON.parse(fs.readFileSync("./data/"+id+".json"));	
     adverse = data.adverse;
@@ -142,7 +142,6 @@ const req_tir = function (req, res, query)
                 if(verif_down(id, 4) === true)
                 {
                     data.shot = true;
-                    shot = "Vous disposez du mega tir";
                     fs.writeFileSync("./data/"+id+".json", JSON.stringify(data), "UTF-8");
                 }
             }		
@@ -212,10 +211,13 @@ const req_tir = function (req, res, query)
 		return;
     }
 
-    if(sonar === "miss")
+    if(data.shot === true && sonar === "miss") bonus = `<div class ="miss"><img src="tout.png"></div>`;
+    else if(sonar === "miss")
     {
-        sonar =`<div class ="miss"><p> Raté de peu ! <p></div>`;
+        bonus =`<div class ="miss"><img src="miss.png"></div>`;
     }
+    else if (data.shot === true) bonus = `<div class ="miss"><img src="shot.png"></div>`;
+    else bonus = `<div class ="miss"><img src="lettre-ferme.png"></div>`
     
    
 
@@ -233,8 +235,7 @@ const req_tir = function (req, res, query)
     marqueurs.grid_publique = grid_publique;
     marqueurs.id = query.id;
     marqueurs.adverse = adverse;
-    marqueurs.sonar = sonar;
-    marqueurs.shot = shot;
+    marqueurs.bonus = bonus;
 	page = nunjucks.renderString(page, marqueurs);
 
 	res.writeHead(200, { 'Content-Type': 'text/html' });

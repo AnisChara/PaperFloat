@@ -24,13 +24,18 @@
                 </section>
             </div>
         </div>
+        
         <div class="av_adverse"> <!--grille joueur adverse-->
+            {{ bonus | safe}}
             <div class="output">
+                
                 <section id="exemple">
+                    
                     <div class="d3" style="transform: rotate3d(0, 2, 0.4, 3.142rad);">
                         <div class="face front"></div>
                         <div class="face back"></div>
                             <div class="adverse">
+                                
                                 {{grid_publique | safe }}
                             </div>
                         <div class="face rigth"></div>
@@ -41,7 +46,6 @@
                 </section>
             </div>
         </div>
-        {{ sonar | safe}}
-        {{ shot | safe}}
+        
     </body>
 </html>

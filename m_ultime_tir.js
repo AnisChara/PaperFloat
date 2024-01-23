@@ -26,7 +26,7 @@ const ultime_tir = function(grille,co,bateau,adverse,shot)
             {
                 for(let j = 0; j < bateau[i].length; j++)
                 {
-                    if (((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y)**2)**0.5 < 1.5 && bateau[i][j].state === false || ((bateau[i][j].x - co.x+1)**2 + (bateau[i][j].y - co.y)**2)**0.5 < 1.5 && bateau[i][j].state === false || ((bateau[i][j].x - co.x-1)**2 + (bateau[i][j].y - co.y)**2)**0.5 < 1.5 && bateau[i][j].state === false|| ((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y+1)**2)**0.5 < 1.5 && bateau[i][j].state === false || ((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y-1)**2)**0.5 < 1.5 && bateau[i][j].state === false)
+                    if (((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y)**2)**0.5 <= 1 && bateau[i][j].state === false || ((bateau[i][j].x - co.x+1)**2 + (bateau[i][j].y - co.y)**2)**0.5 < 1.5 && bateau[i][j].state === false || ((bateau[i][j].x - co.x-1)**2 + (bateau[i][j].y - co.y)**2)**0.5 < 1.5 && bateau[i][j].state === false|| ((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y+1)**2)**0.5 < 1.5 && bateau[i][j].state === false || ((bateau[i][j].x - co.x)**2 + (bateau[i][j].y - co.y-1)**2)**0.5 < 1.5 && bateau[i][j].state === false)
                     {
                         return "miss";
                     }
