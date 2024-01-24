@@ -186,6 +186,16 @@ body
     background-size: 105% 100%;
     background-repeat: no-repeat;
 }
+.case_bateau1T
+{
+    border: 0.5px solid white;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+    background: url(1_T.PNG);
+    background-size: 105% 100%;
+    background-repeat: no-repeat;
+}
 .case1_bateau3
 {
     border: 0.5px solid white;
@@ -255,7 +265,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(3_1T.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -265,7 +275,8 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    transform: rotate(-90deg);
+    background: url(3_1T.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -275,7 +286,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(3_2T.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -285,7 +296,8 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(3_2T.png);
+    transform: rotate(-90deg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -295,7 +307,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(3_3T.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -305,7 +317,8 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(3_3T.png);
+    transform: rotate(-90deg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -510,7 +523,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(5_1T.PNG) ;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -520,7 +533,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(5_2T.PNG) ;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -530,7 +543,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(5_3T.PNG) ;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -540,7 +553,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(5_4T.PNG) ;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -550,7 +563,7 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(5_5T.PNG) ;
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -560,7 +573,8 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(5_1T.PNG) ;
+    transform: rotate(-90deg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -570,7 +584,8 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(5_2T.PNG) ;
+    transform: rotate(-90deg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -580,7 +595,8 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(5_3T.PNG) ;
+    transform: rotate(-90deg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -590,7 +606,8 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(5_4T.PNG) ;
+    transform: rotate(-90deg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
@@ -600,7 +617,8 @@ body
     width: 100%;
     height: 100%;
     cursor: crosshair;
-    background-color: red;
+    background: url(5_5T.PNG) ;
+    transform: rotate(-90deg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
