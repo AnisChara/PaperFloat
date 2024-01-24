@@ -8,7 +8,7 @@ body
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url(fond2.png);
+    background: url(back_eau.png);
     background-size: 100% 100%;
     cursor: crosshair;
     overflow: hidden;
@@ -123,6 +123,9 @@ body
     border: 1px solid white;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    background-image: url(fond_grid_perso.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .av_adverse
