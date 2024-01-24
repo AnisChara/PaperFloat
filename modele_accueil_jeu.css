@@ -1,8 +1,8 @@
 body
 {
-    background: url(toivague.webp) no-repeat;
+    background: url(ile.jpg);
     background-size: cover;
-    height: 40vh;
+    height: 100vh;
     background-position: left;
     animation: move 20s ease-in-out infinite;
     overflow: hidden;
