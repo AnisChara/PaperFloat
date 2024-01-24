@@ -24,6 +24,7 @@ body
 #exemple
 {
     perspective: 550px;
+    margin: -100px 0px 0px 0px;
 }
 
 .d3
@@ -75,6 +76,37 @@ body
     transform: rotateX(-90deg) translateZ(-162px);
 }
 
+.frontl
+{
+    transform: translateZ(200px);
+}
+
+.backl
+{
+    transform: rotateY(180deg) translateZ(-200px);
+}
+
+.rigthl
+{
+    transform: rotateY(90deg) translateZ(200px) translateY(-401px);
+}
+
+.leftl
+{
+    transform: rotateY(-90deg) translateZ(0px) translateY(0px);
+}
+
+.topl
+{
+    transform: rotateX(90deg) translateZ(1090px);
+}
+
+.bottoml
+{
+    /*background: rgb(224, 205, 169, .9);   ( au cas ou souleur sable ) */
+    transform: rotateX(-90deg) translateZ(-162px);
+}
+
 .tout
 {
     width: 600px;
@@ -115,7 +147,14 @@ body
     background-size: 100% 100%;
     margin-top: 0%;
 }
-
+.titre
+{
+    text-align: center;
+    justify-content: center;
+    width: 400px;
+    height: 150px;
+    margin: 0px -180px 0px 0px;
+}
 .case_eau
 {
     border: 1px solid white;
