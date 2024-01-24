@@ -3,16 +3,16 @@
 	<head>
 		<title>Accueil membre</title>
 		<link rel="icon" type="image/x-icon" href="logo_paper.png">
+		<link rel="stylesheet" type="text/css" href="modele_accueil_membre.css">
 		<meta charset="utf-8">
 	</head>
 	<body>
 		<h2>Bienvenue !</h2>
-
-		<p>
-			Bonjour <em>{{ pseudo }}<em>
-		</p>
-		<a href="/req_afficher_accueil_jeu?id={{ pseudo }}"><button>Paper Float</button></a>
-
-
+			<div class="contaier">
+				<p>Bonjour {{ pseudo }}</p>
+			</div>
+				<div class="connect">
+					<a href="/req_afficher_accueil_jeu?id={{ pseudo }}"><button>Paper Float</button></a>
+				</div>
 	</body>
 </html>
