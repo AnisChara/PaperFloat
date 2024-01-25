@@ -4,10 +4,12 @@ const botC = function(grille,liste_bateaux)
 {
     let checkCell = [,];
     let checkNSEW = [[undefined,undefined],[undefined,undefined],[undefined,undefined],[undefined,undefined]];
-    let countInRow = 0;
+    let movingToAnotherCell = 0;
     let old_direction = undefined;
     let skip;
     let noMovement = false;
+    let stillMoving = 0;
+    let choice;
 
     for(let y = 0; y<grille.length; y++)
     {
@@ -39,7 +41,7 @@ const botC = function(grille,liste_bateaux)
                                     console.log("5");
                                     checkCell = [x,y];
 
-                                    while(countInRow !== undefined) //tant qu'il y'a une case adjacente en true.
+                                    while(movingToAnotherCell !== undefined) //tant qu'il y'a une case adjacente en true.
                                     {
                                         
                                             //console.log("in while");
@@ -91,6 +93,13 @@ const botC = function(grille,liste_bateaux)
                                                 }
                                             }
 
+                                            if(grille[checkNSEW[0][0]][checkNSEW[0][1]] === true && grille[checkNSEW[1][0]][checkNSEW[1][1]] === true && grille[checkNSEW[2][0]][checkNSEW[2][1]] === true && grille[checkNSEW[3][0]][checkNSEW[3][1]] === true)
+                                            {
+                                                direction = skip;
+                                                skip = old_direction;
+                                                
+                                            }
+
                                             //console.log("here");
 
                                         
@@ -134,19 +143,170 @@ const botC = function(grille,liste_bateaux)
                                                             for(let check_bateau = 0; check_bateau < liste_bateaux[check_bateaux].length;check_bateau++)
                                                             {
                                                                 if(liste_bateaux[check_bateaux][check_bateau].x === checkNSEW[direction][1] && liste_bateaux[check_bateaux][check_bateau].y === checkNSEW[direction][0] && liste_bateaux[check_bateaux][check_bateau].state === true && skip !== direction) // si les coordonnées d'une direction corresponde a une case de bateau et touché  && skip !== direction
-                                                                {  
-                                                                
-                                                                    console.log("here 3");
-                                                                    countInRow++;
-                                                                    checkCell = [checkNSEW[direction][0],checkNSEW[direction][1]];
-                                                                    old_direction = direction; 
-                                                                    break;
+                                                                {
+                                                                    for(let count_true = 0; count_true < liste_bateaux[check_bateaux].length; count_true++) //avant de changer de case on verifie que cette case appartient à un bateau non coulé.
+                                                                    {
+                                                                        if(liste_bateaux[check_bateaux][count_true].state === false)
+                                                                        {
+                                                                            if(stillMoving > 23) //changement de manoeuvre, si on rentre dans cette condition alors on boucle dans le déplacement, dans le bateau de neuf cases et/ou a cause de bateau collé entre eux.
+                                                                            {
+                                                                                switch(checkNSEW) //choix d'une direction possibles avec les cases
+                                                                                {
+                                                                                    case checkNSEW[0][0] !== undefined && checkNSEW[0][1] !== undefined && checkNSEW[1][0] !== undefined && checkNSEW[1][1] !== undefined && checkNSEW[2][0] !== undefined && checkNSEW[2][1] !== undefined && checkNSEW[3][0] !== undefined && checkNSEW[3][1] !== undefined && grille[checkNSEW[0][0]][checkNSEW[0][1]] === true && grille[checkNSEW[1][0]][checkNSEW[1][1]] === true && grille[checkNSEW[2][0]][checkNSEW[2][1]] === true && grille[checkNSEW[3][0]][checkNSEW[3][1]] === true : // si vrai c'est la case du centre
+                                                                                        choice = [[checkNSEW[0][0]-1,checkNSEW[0][1]+1][checkNSEW[1][0]+1,checkNSEW[1][1]-1][checkNSEW[2][0]+1,checkNSEW[2][1]+1][checkNSEW[3][0]-1,checkNSEW[3][1]-1]];
+                                                                                        result = choice[Math.floor(math.random() * 4)];
+                                                                                        return result;
+                                                                                    
+                                                                                    case checkNSEW[0][0] !== undefined && checkNSEW[0][1] !== undefined && grille[checkNSEW[0][0]][checkNSEW[0][1]] === true: // si un tir est possible
+                                                                                        switch(checkNSEW)
+                                                                                        {
+                                                                                            case checkNSEW[2][0] !== undefined && checkNSEW[2][1] !== undefined && grille[checkNSEW[2][0]][checkNSEW[2][1]] === true: // perpendiculaire
+                                                                                                if(checkNSEW[3][0] !== undefined && checkNSEW[3][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[0][0] = checkNSEW[3][0];
+                                                                                                    choice[0][1] = checkNSEW[3][1];
+                                                                                                }
+                                                                                                if(checkNSEW[1][0] !== undefined && checkNSEW[1][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[1][0] = checkNSEW[1][0];
+                                                                                                    choice[1][1] = checkNSEW[1][1];
+                                                                                                }
 
+                                                                                                result = choice[Math.floor(math.random() * 1)];
+                                                                                                return result;
+
+                                                                                            case checkNSEW[3][0] !== undefined && checkNSEW[3][1] !== undefined && grille[checkNSEW[3][0]][checkNSEW[3][1]] === true: // perpendiculaire
+                                                                                                if(checkNSEW[2][0] !== undefined && checkNSEW[2][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[0][0] = checkNSEW[2][0];
+                                                                                                    choice[0][1] = checkNSEW[2][1];
+                                                                                                }
+                                                                                                if(checkNSEW[1][0] !== undefined && checkNSEW[1][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[1][0] = checkNSEW[1][0];
+                                                                                                    choice[1][1] = checkNSEW[1][1];
+                                                                                                }
+
+                                                                                                result = choice[Math.floor(math.random() * 1)];
+                                                                                                return result;
+                                                                                        }
+                                                                                    
+                                                                                    case checkNSEW[1][0] !== undefined && checkNSEW[1][1] !== undefined && grille[checkNSEW[1][0]][checkNSEW[1][1]] === true:
+                                                                                        switch(checkNSEW)
+                                                                                        {
+                                                                                            case checkNSEW[2][0] !== undefined && checkNSEW[2][1] !== undefined && grille[checkNSEW[2][0]][checkNSEW[2][1]] === true:
+                                                                                                if(checkNSEW[3][0] !== undefined && checkNSEW[3][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[0][0] = checkNSEW[3][0];
+                                                                                                    choice[0][1] = checkNSEW[3][1];
+                                                                                                }
+                                                                                                if(checkNSEW[0][0] !== undefined && checkNSEW[0][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[1][0] = checkNSEW[0][0];
+                                                                                                    choice[1][1] = checkNSEW[0][1];
+                                                                                                }
+
+                                                                                                result = choice[Math.floor(math.random() * 1)];
+                                                                                                return result;
+                                                                                            
+                                                                                            case checkNSEW[3][0] !== undefined && checkNSEW[3][1] !== undefined && grille[checkNSEW[3][0]][checkNSEW[3][1]] === true:
+                                                                                                if(checkNSEW[3][0] !== undefined && checkNSEW[3][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[0][0] = checkNSEW[3][0];
+                                                                                                    choice[0][1] = checkNSEW[3][1];
+                                                                                                }
+                                                                                                if(checkNSEW[0][0] !== undefined && checkNSEW[0][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[1][0] = checkNSEW[0][0];
+                                                                                                    choice[1][1] = checkNSEW[0][1];
+                                                                                                }
+
+                                                                                                result = choice[Math.floor(math.random() * 1)];
+                                                                                                return result;
+                                                                                        }
+                                                                                    
+                                                                                    case checkNSEW[2][0] !== undefined && checkNSEW[2][1] !== undefined && grille[checkNSEW[2][0]][checkNSEW[2][1]] === true:
+                                                                                        switch(checkNSEW)
+                                                                                        {
+                                                                                            case checkNSEW[0][0] !== undefined && checkNSEW[0][1] !== undefined && grille[checkNSEW[0][0]][checkNSEW[0][1]] === true:
+                                                                                                if(checkNSEW[3][0] !== undefined && checkNSEW[3][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[0][0] = checkNSEW[3][0];
+                                                                                                    choice[0][1] = checkNSEW[3][1];
+                                                                                                }
+                                                                                                if(checkNSEW[1][0] !== undefined && checkNSEW[1][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[1][0] = checkNSEW[1][0];
+                                                                                                    choice[1][1] = checkNSEW[1][1];
+                                                                                                }
+
+                                                                                                result = choice[Math.floor(math.random() * 1)];
+                                                                                                return result;
+                                                                                            case checkNSEW[1][0] !== undefined && checkNSEW[1][1] !== undefined && grille[checkNSEW[1][0]][checkNSEW[1][1]] === true:
+                                                                                                if(checkNSEW[3][0] !== undefined && checkNSEW[3][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[0][0] = checkNSEW[3][0];
+                                                                                                    choice[0][1] = checkNSEW[3][1];
+                                                                                                }
+                                                                                                if(checkNSEW[0][0] !== undefined && checkNSEW[0][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[1][0] = checkNSEW[0][0];
+                                                                                                    choice[1][1] = checkNSEW[0][1];
+                                                                                                }
+
+                                                                                                result = choice[Math.floor(math.random() * 1)];
+                                                                                                return result;
+                                                                                        }
+                                                                                    
+                                                                                    case checkNSEW[3][0] !== undefined && checkNSEW[3][1] !== undefined && grille[checkNSEW[3][0]][checkNSEW[3][1]] === true:
+                                                                                        switch(checkNSEW)
+                                                                                        {
+                                                                                            case checkNSEW[0][0] !== undefined && checkNSEW[0][1] !== undefined && grille[checkNSEW[0][0]][checkNSEW[0][1]] === true:
+                                                                                                if(checkNSEW[2][0] !== undefined && checkNSEW[2][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[0][0] = checkNSEW[2][0];
+                                                                                                    choice[0][1] = checkNSEW[2][1];
+                                                                                                }
+                                                                                                if(checkNSEW[1][0] !== undefined && checkNSEW[1][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[1][0] = checkNSEW[1][0];
+                                                                                                    choice[1][1] = checkNSEW[1][1];
+                                                                                                }
+
+                                                                                                result = choice[Math.floor(math.random() * 1)];
+                                                                                                return result;
+                                                                                            case checkNSEW[1][0] !== undefined && checkNSEW[1][1] !== undefined && grille[checkNSEW[1][0]][checkNSEW[1][1]] === true:
+                                                                                                if(checkNSEW[2][0] !== undefined && checkNSEW[2][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[0][0] = checkNSEW[2][0];
+                                                                                                    choice[0][1] = checkNSEW[2][1];
+                                                                                                }
+                                                                                                if(checkNSEW[0][0] !== undefined && checkNSEW[0][1] !== undefined)
+                                                                                                {
+                                                                                                    choice[1][0] = checkNSEW[0][0];
+                                                                                                    choice[1][1] = checkNSEW[0][1];
+                                                                                                }
+
+                                                                                                result = choice[Math.floor(math.random() * 1)];
+                                                                                                return result;
+                                                                                        }
+                                                                                }
+
+                                                                            }
+
+                                                                            console.log("here 3");
+                                                                            movingToAnotherCell++;
+                                                                            stillMoving++;
+                                                                            checkCell = [checkNSEW[direction][0],checkNSEW[direction][1]];
+                                                                            old_direction = direction; 
+                                                                            break;
+                                                                        }
+                                                                    }
                                                                 
                                                                 }
                                                                 //else
                                                                 //{
-                                                                //    countInRow = undefined;
+                                                                //    movingToAnotherCell = undefined;
                                                                 //    noMovement = true;
                                                                 //}
                                                             }
@@ -154,7 +314,7 @@ const botC = function(grille,liste_bateaux)
                                                     //}
                                                     //else
                                                     //{
-                                                    //    countInRow = undefined;
+                                                    //    movingToAnotherCell = undefined;
                                                     //    noMovement = true;
                                                     //}
                                                 //}
@@ -164,7 +324,7 @@ const botC = function(grille,liste_bateaux)
                                         console.log("6");
                                         console.log("Dernière case étudié :"+checkCell);
                                     
-                                        if(countInRow === 0)
+                                        if(movingToAnotherCell === 0)
                                         {
                                             let response;
                                             response = checkNSEW[Math.floor(Math.random() *  4)];
@@ -188,7 +348,7 @@ const botC = function(grille,liste_bateaux)
                                             }
 
                                         }
-                                        countInRow = 0;
+                                        movingToAnotherCell = 0;
                                     }
                                 }
                             }

@@ -9,10 +9,11 @@ grille = JSON.parse(fs.readFileSync("./grille/save_grille_admin.json",grille,"ut
 liste_bateaux = JSON.parse(fs.readFileSync("./bateaux/save_bateaux_admin.json",liste_bateaux,"utf-8")); 
 
 let YesWeCan = false;
+let tir;
 
 while(YesWeCan === false)
 {
-    let tir = bot(grille,liste_bateaux);
+    tir = bot(grille,liste_bateaux);
 
     for(let verify_y = 0; verify_y < grille.length; verify_y++)
     {
