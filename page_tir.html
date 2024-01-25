@@ -8,10 +8,11 @@
     </head>
     <body>
         <div class="tout">
+            <img src="titre-grid-perso.png" class="titre_grid">
+            <div class="back_grid">
             <div class="output">
                 <section id="exemple">
-                <img src="titre-grid-perso.png" class="titre">
-                    <div class="d3" style="transform: rotate3d(0, 2, 0.4, 3.142rad);">
+                    <div class="d3_grid" style="transform: rotateY(180deg);">
                         <div class="face front"></div>
                         <div class="face back"></div>
                             <div class="perso">     <!--grille joueur-->
@@ -25,13 +26,14 @@
                 </section>
             </div>
         </div>
+        </div>
         
         <div class="av_adverse"> <!--grille joueur adverse-->
             {{ bonus | safe}}
             <div class="output">
                 
                 <section id="exemple">
-                <img src="titre-grid-ad.png" class="titre"> 
+                <img src="titre-grid-ad.png" class="titre_ad"> 
                     <div class="d3" style="transform: rotate3d(0, 2, 0.4, 3.142rad);">
                         <div class="face frontl"></div>
                         <div class="face backl"></div>

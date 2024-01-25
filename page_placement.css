@@ -92,8 +92,13 @@ body
 
 .tout_3
 {
-    width: 600px;
+    width: 400px;
+    height: 750px;
     position: relative;
+    background: url(bois.jpg);
+    background-size: 100% 100%;
+    border-radius: 20%;
+    margin: 90px 0px 0px 190px;
 }
 
 .bateau
@@ -102,9 +107,59 @@ body
     grid-template-rows: repeat(5, 1fr);
     width: 444px;
     height: 60px;
-    margin: -40% 0% 0% 25%;
+    margin: 8% 0% 0% 6%;
     grid-row-gap: 60px;
+
 }
+
+.boue
+{
+    width: 60px;
+    height: 60px;
+    border: 1px solid white;
+    background: url(bateau1.PNG);
+    background-size: 100% 100%;
+    cursor: crosshair;
+    border: none;
+    margin: 0px 0px 0px 150px;
+} 
+
+.boat
+{
+    width: 180px;
+    height: 60px;
+    border: 1px solid white;
+    background: url(3H.png);
+    background-size: 100% 100%;
+    cursor: crosshair;
+    border: none;
+    margin: 0px 0px 0px 85px;
+}
+
+.bigboat
+{
+    width: 300px;
+    height: 60px;
+    border: 1px solid white;
+    background: url(5.png);
+    background-size: 100% 100%;
+    cursor: crosshair;
+    border: none;
+    margin: 0px 0px 0px 33px;
+} 
+
+.plateau
+{
+    width: 180px;
+    height: 180px;
+    border: 1px solid white;
+    background: url(bateau1.PNG);
+    background-size: 100% 100%;
+    cursor: crosshair;
+    border: none;
+    margin: 0px 0px 0px 95px;
+} 
+
 .rotate
 { 
     width: 44px;
@@ -139,7 +194,7 @@ body
     position: relative;
     margin: 20% 25% 5% 5%;
     background: url(papier_ancien.png);
-    background:cover;
+    background: cover;
     background-repeat: no-repeat;
 }
 .case_eau
@@ -490,7 +545,7 @@ input
     left: 0;
     width: 0;
     height: 100%;
-    background: aqua;
+    background: #E0C9A6;
     transition: all .35s;
   }
   
