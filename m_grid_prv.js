@@ -1,5 +1,3 @@
-// Traitement de "req_commencer"
-
 "use strict";
 
 const fs = require("fs");
@@ -26,6 +24,7 @@ const m_grid_prv = function(id) {
 						css = `<div class="case_bateau"><a type="submit" href="/req_bateaux?bouton=${i}-${j}&id=${id}"><input type="button"></a></div>`
 						
 						if (u === 1 || u === 2)
+						//dire que j'aurais pu faire ça en seulement quelques lignes
 						{
 							if (bateaux[u][0].x === bateaux[u][1].x)
 							{
