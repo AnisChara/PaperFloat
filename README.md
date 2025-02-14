@@ -1,3 +1,1 @@
-# Modèle PI
-
-![Schéma de navigation](./schema_nav_demo_pi.png)
+Paper Float est un jeu de Bataille Navale en multijoueur.
