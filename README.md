@@ -1,7 +1,7 @@
 # PaperFloat - Jeu de Bataille Navale Multijoueur 🌊⚓
 
 **PaperFloat** est un jeu de **Bataille Navale** en **multijoueur** où les joueurs peuvent se défier dans une version interactive du célèbre jeu de société.  
-Il s'agit de mon tout premier projet réalisé en équipe lors de mon **premier semestre en première année**. Comme il s'agit de mon premier projet, l'organisation des fichiers n'était pas optimale au début. Cependant, malgré cela, ce projet m'a permis de progresser et d'apprendre les bases du développement web.
+Il s'agit de mon tout premier projet réalisé en équipe lors de mon **premier semestre en première année**. Comme il s'agit de mon premier projet, l'organisation des fichiers n'était pas optimale au début. Cependant, malgré cela, ce projet m'a permis de progresser et d'apprendre les bases du développement web. Pour l'essayer exécuter la commande `npm start`, puis aller sur [localhost:5000](http://localhost:5000), le jeu est uniquement multijoueur, il faudra donc le lancer sur 2 onglets pour y jouer.
 
 ## 🚀 Fonctionnalités :
 - **Mode multijoueur** : Plusieurs joueurs peuvent rejoindre une partie et s'affronter en temps réel.
